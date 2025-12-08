@@ -16,28 +16,40 @@ const ServiceInfo: React.FC<ServiceInfoProps> = ({
   reviewsCount,
 }) => {
   return (
-    <div className="flex-1 md:pr-6 space-y-2">
+<div className="flex-1 md:pr-6 flex flex-col gap-3">
 
-      {/* category */}
-      <div className="flex items-center gap-2 text-xs">
-        <FiLayers className="text-[#00B274] w-4 h-4" />
-        <span className="text-[#8A8A8A]">{category}</span>
-      </div>
+  {/* CATEGORY */}
+  <div className="flex items-center gap-2 h-[24px]">
+    <FiLayers className="text-[#00B274] w-6 h-6" /> {/* 24x24 */}
+    <span className="text-[#8A8A8A] text-[12px] leading-[12px]">
+      {category}
+    </span>
+  </div>
 
-      {/* title */}
-      <h3 className="text-sm md:text-xl font-semibold text-[#111827] mt-3">
-        {title}
-      </h3>
+  {/* TITLE */}
+  <h3 className="text-[24px] leading-[32px] font-semibold text-[#111827]">
+    {title}
+  </h3>
 
-      {/* rating */}
-      <div className="flex items-center gap-1 text-xs text-[#8A8A8A] mt-2">
-        <AiFillStar className="text-[#F8B400] w-4 h-4" />
+  {/* RATING */}
+  <div className="flex items-center gap-2 h-[26px]">
 
-        <span className="text-[#111827] font-medium">{rate}</span>
+    {/* STAR ICON */}
+    <AiFillStar className="text-[#F8B400] w-5 h-5" /> {/* 20x20 */}
 
-        <span>({reviewsCount} تقييم)</span>
-      </div>
-    </div>
+    {/* RATE NUMBER */}
+    <span className="text-[#111827] font-medium text-[18px] leading-[26px]">
+      {rate}
+    </span>
+
+    {/* REVIEW COUNT */}
+    <span className="text-[#8A8A8A] text-[16px] leading-[26px]">
+      ({reviewsCount} تقييم)
+    </span>
+  </div>
+
+</div>
+
   );
 };
 

@@ -30,13 +30,24 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   isActive,
 }) => {
   return (
-    <article className="relative p-6 rounded-[20px] bg-white box-shadow2 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-
-
-      {/* image on the far right */}
+    <article
+      className="
+        relative
+        flex flex-col md:flex-row
+        md:items-center md:justify-between
+        w-full
+        md:h-[174px]
+        rounded-[20px]
+        bg-white
+        box-shadow2
+        p-6
+        gap-4
+      "
+    >
+      {/* الصورة يمين */}
       <ServiceImage image={image} title={title} />
 
-      {/* center text (title + rating) */}
+      {/* النص في النص */}
       <ServiceInfo
         title={title}
         category={category}
@@ -44,7 +55,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         reviewsCount={reviewsCount}
       />
 
-      {/* left stats (price + duration + revisions + inQueue + toggle) */}
+      {/* الإحصائيات يسار */}
       <ServiceStats
         price={price}
         duration={duration}
@@ -55,5 +66,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     </article>
   );
 };
+
 
 export default ServiceCard;

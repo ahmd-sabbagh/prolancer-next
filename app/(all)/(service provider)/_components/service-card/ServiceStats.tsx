@@ -20,7 +20,7 @@ const ServiceStats: React.FC<ServiceStatsProps> = ({
   isActive,
 }) => {
   return (
-    <div className="flex flex-col items-end gap-4 w-full md:w-auto">
+    <div className="flex flex-col items-end gap-10 w-full md:w-auto">
 
       {/* toggle + dots */}
       <ServiceHeader isActive={isActive} />

@@ -20,7 +20,7 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isActive }) => {
           after:absolute after:top-[2px] after:right-[3px]
           after:bg-white after:w-5 after:h-5 after:rounded-full
           after:transition-all after:duration-200
-          peer-checked:after:translate-x-[-20px]
+          peer-checked:after:translate-x-[-18px]
         "
       />
     </label>

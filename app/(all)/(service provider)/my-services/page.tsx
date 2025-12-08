@@ -74,18 +74,27 @@ const MyservicesPage = () => {
       isActive: false,
     },
   ];
-
-
   return (
-    <section className="pt-10 pb-16 bg-[#F8FAFF]">
-      <div className="container space-y-8">
+    <section className="bg-[#F8FAFF]">
+      {/* البلوك اللي عرضه 1511 وارتفاعه قريب من 658 */}
+      <div
+        className="
+          mx-auto
+          max-w-[1511px]
+          min-h-[658px]
+          pt-[122px]
+          pb-[204px]
+          space-y-8
+        "
+      >
         <TitleLink
           title={t("myServices")}
           nameLink={t("Add a service")}
           link=""
         />
 
-        <div className="space-y-4">
+        {/* مسافات ثابتة بين الكروت */}
+        <div className="space-y-[32px]">
           {services.map((service) => (
             <ServiceCard key={service.id} {...service} />
           ))}
@@ -94,5 +103,6 @@ const MyservicesPage = () => {
     </section>
   );
 };
+
 
 export default MyservicesPage;

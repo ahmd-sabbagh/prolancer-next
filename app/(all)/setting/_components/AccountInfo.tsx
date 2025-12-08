@@ -64,7 +64,7 @@ const AccountInfo = () => {
       name: t("portfolio"),
     },
     {
-      link: "",
+      link: "/projects",
       name: t("projects"),
     },
     {
