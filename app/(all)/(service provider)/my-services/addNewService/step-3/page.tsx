@@ -79,7 +79,7 @@ const Step3: React.FC = () => {
         </Link>
 
         <Link
-          href="/my-services/my-services"
+          href=""
           className="
             bg-[#00D084] text-white text-sm md:text-base
             w-[360px] h-[52px]
