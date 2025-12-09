@@ -76,7 +76,6 @@ const MyservicesPage = () => {
   ];
   return (
     <section className="bg-[#F8FAFF]">
-      {/* البلوك اللي عرضه 1511 وارتفاعه قريب من 658 */}
       <div
         className="
           mx-auto
@@ -84,16 +83,16 @@ const MyservicesPage = () => {
           min-h-[658px]
           pt-[122px]
           pb-[204px]
+          px-4
           space-y-8
         "
       >
         <TitleLink
           title={t("myServices")}
           nameLink={t("Add a service")}
-          link=""
+          link="/my-services/addNewService/step-1"
         />
 
-        {/* مسافات ثابتة بين الكروت */}
         <div className="space-y-[32px]">
           {services.map((service) => (
             <ServiceCard key={service.id} {...service} />
@@ -103,6 +102,5 @@ const MyservicesPage = () => {
     </section>
   );
 };
-
 
 export default MyservicesPage;
