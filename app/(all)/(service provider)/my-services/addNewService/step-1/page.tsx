@@ -7,7 +7,7 @@ const Step1: React.FC = () => {
     <div className="space-y-10">
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/3 space-y-2 text-right">
-          <h3 className="text-base md:text-lg font-semibold text-[#111827]">
+          <h3 className="text-base md:text-lg text-[#111827]">
             العنوان
           </h3>
           <p className="text-xs text-[#6B7280] leading-relaxed">
@@ -41,7 +41,7 @@ const Step1: React.FC = () => {
       <div className="flex flex-col md:flex-row gap-8">
 
         <div className="w-full md:w-1/3 space-y-2 text-right">
-          <h3 className="text-base md:text-lg font-semibold text-[#111827]">
+          <h3 className="text-base md:text-lg text-[#111827]">
             القسم
           </h3>
           <p className="text-xs text-[#6B7280] leading-relaxed">

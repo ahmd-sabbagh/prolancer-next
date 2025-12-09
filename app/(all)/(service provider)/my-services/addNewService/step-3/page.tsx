@@ -16,7 +16,7 @@ const Step3: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-8">
 
           <div className="w-full md:w-1/3 text-right space-y-1">
-            <h3 className="text-base md:text-lg font-semibold text-[#111827]">
+            <h3 className="text-base md:text-lg text-[#111827]">
               تكلفة الخدمة الأساسية
             </h3>
           </div>
