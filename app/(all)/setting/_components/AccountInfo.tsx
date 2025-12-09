@@ -56,11 +56,11 @@ const AccountInfo = () => {
       name: t("myServices"),
     },
     {
-      link: "",
+      link: "orders",
       name: t("orders"),
     },
     {
-      link: "",
+      link: "portfolio",
       name: t("portfolio"),
     },
     {
