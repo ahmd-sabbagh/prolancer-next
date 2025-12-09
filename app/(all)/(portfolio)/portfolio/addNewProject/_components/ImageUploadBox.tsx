@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { FiImage } from "react-icons/fi";
 
-export default function ImageUploadBox() {
+const ImageUploadBox: React.FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -57,7 +57,6 @@ export default function ImageUploadBox() {
           />
         )}
 
-        {/* input الحقيقي */}
         <input
           ref={inputRef}
           type="file"
@@ -73,4 +72,6 @@ export default function ImageUploadBox() {
       </div>
     </div>
   );
-}
+};
+
+export default ImageUploadBox;
