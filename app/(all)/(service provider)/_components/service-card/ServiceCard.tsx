@@ -2,33 +2,26 @@ import React from "react";
 import ServiceImage from "./ServiceImage";
 import ServiceInfo from "./ServiceInfo";
 import ServiceStats from "./ServiceStats";
-import { StaticImageData } from "next/image";
+import type { Service } from "../services-data";
 
 interface ServiceCardProps {
-  title: string;
-  category: string;
-  image: string | StaticImageData;
-  price: string | number;
-  duration: string;
-  revisions: string;
-  inQueue: string;
-  rate: string | number;
-  reviewsCount: string | number;
-  isActive: boolean;
+  service: Service;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({
-  title,
-  category,
-  image,
-  price,
-  duration,
-  revisions,
-  inQueue,
-  rate,
-  reviewsCount,
-  isActive,
-}) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
+  const {
+    title,
+    category,
+    image,
+    price,
+    duration,
+    revisions,
+    inQueue,
+    rate,
+    reviewsCount,
+    isActive,
+  } = service;
+
   return (
     <article
       className="
@@ -44,10 +37,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         gap-4
       "
     >
-      {/* الصورة يمين */}
       <ServiceImage image={image} title={title} />
 
-      {/* النص في النص */}
       <ServiceInfo
         title={title}
         category={category}
@@ -55,7 +46,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         reviewsCount={reviewsCount}
       />
 
-      {/* الإحصائيات يسار */}
       <ServiceStats
         price={price}
         duration={duration}

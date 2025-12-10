@@ -1,20 +1,15 @@
-import Link from "next/link";
+"use client";
+
 import React from "react";
+import FormCard from "../_component/FormCard";
+import Link from "next/link";
 
 const Step3: React.FC = () => {
   return (
     <div className="space-y-10">
 
-      <div
-        className="
-          rounded-[10px]
-          bg-white
-          px-4 md:px-6 py-5 md:py-6
-          space-y-6
-        "
-      >
+      <FormCard className="space-y-6">
         <div className="flex flex-col md:flex-row gap-8">
-
           <div className="w-full md:w-1/3 text-right space-y-1">
             <h3 className="text-base md:text-lg text-[#111827]">
               تكلفة الخدمة الأساسية
@@ -57,14 +52,18 @@ const Step3: React.FC = () => {
             "
           />
         </div>
-      </div>
-
-      <div className="pt-4 mt-4 flex justify-between">
-
+      </FormCard>
+      <div
+        className="
+          pt-4 mt-4
+          flex flex-col items-center gap-3
+          md:flex-row md:justify-between md:items-center
+        "
+      >
         <Link
           href="/my-services/addNewService/step-2"
           className="
-            w-[140px] h-[52px]
+            w-full md:w-[140px] h-[52px]
             rounded-[12px]
             border border-[#00B274]
             text-[#00B274]
@@ -81,8 +80,8 @@ const Step3: React.FC = () => {
         <Link
           href=""
           className="
+            w-full md:w-[360px] h-[52px]
             bg-[#00D084] text-white text-sm md:text-base
-            w-[360px] h-[52px]
             rounded-[12px]
             flex items-center justify-center
             shadow-[0_10px_25px_rgba(16,185,129,0.35)]
@@ -92,7 +91,6 @@ const Step3: React.FC = () => {
         >
           نشر الخدمة
         </Link>
-
       </div>
     </div>
   );
