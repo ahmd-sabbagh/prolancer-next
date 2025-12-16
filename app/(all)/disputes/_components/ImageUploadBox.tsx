@@ -18,7 +18,6 @@ const ImageUploadBox: React.FC = () => {
       setPreview(null);
       return;
     }
-
     const url = URL.createObjectURL(file);
     setPreview(url);
   };
@@ -30,13 +29,7 @@ const ImageUploadBox: React.FC = () => {
   }, [preview]);
 
   return (
-    <div
-      className="
-        flex sm:flex-row
-        items-center
-        gap-4 sm:gap-5
-      "
-    >
+    <div className="flex sm:flex-row items-center gap-4 sm:gap-5">
       <div
         onClick={handleClick}
         className="
@@ -61,6 +54,8 @@ const ImageUploadBox: React.FC = () => {
           <Image
             src={preview}
             alt="Preview"
+            width={80}
+            height={90}
             className="
               w-[80px] h-[90px]
               object-cover
@@ -81,7 +76,7 @@ const ImageUploadBox: React.FC = () => {
 
       <div className="flex flex-col gap-1 text-xs sm:text-sm">
         <span className="text-[#111827] font-medium">ارفع صورة</span>
-        <span className="text-[#9CA3AF]">JPG 80×90px</span>
+        <span className="text-[#9CA3AF]">العقد المرفق، إن وجد</span>
       </div>
     </div>
   );

@@ -34,12 +34,16 @@ const AccountInfo = () => {
       link: "",
     },
   ];
-  const service_provider = true;
+  const service_provider = false;
 
   const service_requester = [
     {
       link: "",
       name: t("projects"),
+    },
+    {
+      link: "/disputes",
+      name: "النزاعات",
     },
     {
       link: "/favorite",
@@ -88,7 +92,18 @@ const AccountInfo = () => {
             link="/setting/account-setting"
             name={t("account setting")}
           />
-          <ItemLink link="" name={t("notification")} />
+          <ItemLink
+            link="/setting/privacy-and-security"
+            name={"الأمان والخصوصية"}
+          />
+          <ItemLink
+            link="/setting/professional-settings"
+            name={"الإعدادات المهنية"}
+          />
+          <ItemLink
+            link="/setting/financial"
+            name={"المالية"}
+          />
         </div>
         <span className="mt-3 dark-color text-sm block">
           {t("share account")}

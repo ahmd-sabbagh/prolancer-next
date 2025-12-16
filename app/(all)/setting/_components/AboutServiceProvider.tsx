@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import React from "react";
+import { SkillItem } from "./SkillItem";
 
 const AboutMe = () => {
   const t = useTranslations();
@@ -78,6 +79,65 @@ const AboutMe = () => {
           </div>
         </div>
       </div>
+
+      {/* skills and tools */}
+      <div className="flex flex-col md:flex-row md:items-start mt-10 gap-4 md:gap-10">
+        {/* Card */}
+        <div className="w-full">
+          {/* Title */}
+          <h3 className="text-right text-gray-800 mb-4 text-xl">مهارات و ادوات</h3>
+
+          {/* Rows */}
+          <div className="space-y-4 bg-white border border-gray-200 rounded-lg p-4 md:p-6">
+            {/* Row 1 */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <SkillItem label="Figma" value={60} />
+              <SkillItem label="Html & CSS" value={70} />
+              <SkillItem label="AI" value={80} />
+            </div>
+
+            {/* Row 2 */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <SkillItem label="Figma" value={60} />
+              <SkillItem label="Html & CSS" value={70} />
+              <SkillItem label="AI" value={80} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* portfolio */}
+      <div className="flex flex-col md:flex-row md:items-start mt-10 gap-4 md:gap-10">
+        <div className="w-full bg-white">
+          {/* Title */}
+          <h3 className="text-right text-gray-800 mb-4 text-xl">ملف الاعمال</h3>
+
+          {/* Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Right big box */}
+            <div className="md:col-span-2">
+              <div className="h-[320px] md:h-[510px] bg-gray-200 rounded-xl" />
+            </div>
+
+            {/* Left column (2 stacked boxes) */}
+            <div className="md:col-span-1 flex flex-col gap-6">
+              {/* top gray */}
+              <div className="h-[220px] md:h-[240px] bg-gray-200 rounded-xl" />
+
+              {/* bottom mint "show all" */}
+              <button
+                type="button"
+                className="h-[220px] md:h-[240px] bg-emerald-100 rounded-xl
+                     flex items-center justify-center text-emerald-600
+                     text-xl hover:bg-emerald-200 transition"
+              >
+                عرض الكل
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };
