@@ -9,7 +9,7 @@ interface RequestsMobileListProps {
 
 const RequestsMobileList: React.FC<RequestsMobileListProps> = ({ requests }) => {
     return (
-        <div className="space-y-4 md:hidden">
+<div className="space-y-4 lg:hidden">
             {requests.map((item) => (
                 <div
                     key={item.id}

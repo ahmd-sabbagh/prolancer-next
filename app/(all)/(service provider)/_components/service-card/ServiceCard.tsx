@@ -2,6 +2,8 @@ import React from "react";
 import ServiceImage from "./ServiceImage";
 import ServiceInfo from "./ServiceInfo";
 import ServiceStats from "./ServiceStats";
+import ServiceHeader from "./ServiceHeader"; // 👈 إضافة
+
 import type { Service } from "../services-data";
 
 interface ServiceCardProps {
@@ -23,20 +25,28 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   } = service;
 
   return (
-    <article
-      className="
-        relative
-        flex flex-col md:flex-row
-        md:items-center md:justify-between
-        w-full
-        md:h-[174px]
-        rounded-[20px]
-        bg-white
-        box-shadow2
-        p-6
-        gap-4
-      "
-    >
+<article
+  className="
+    relative
+    flex flex-col lg:flex-row
+    lg:items-center lg:justify-between
+    w-full
+    lg:h-[174px]
+    rounded-[20px]
+    bg-white
+    box-shadow2
+    p-4 lg:p-6
+    gap-4 lg:gap-6
+  "
+>
+
+  {/* mobile header */}
+  <div className="w-full flex justify-end lg:hidden">
+    <ServiceHeader isActive={isActive} />
+  </div>
+
+  <div className="flex flex-col items-center justify-center lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6 w-full">
+
       <ServiceImage image={image} title={title} />
 
       <ServiceInfo
@@ -53,9 +63,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         inQueue={inQueue}
         isActive={isActive}
       />
+
+  </div>
     </article>
   );
 };
-
 
 export default ServiceCard;

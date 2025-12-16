@@ -6,19 +6,27 @@ const tags: string[] = ["UX/UI DESIGNER", "WEB DESIGN", "APP"];
 
 const AddNewProjectPage: FC = () => {
   return (
-    <section className="min-h-screen bg-[#F8FAFF] py-10 md:py-16">
-      <div className="mx-auto max-w-[1240px] px-4 md:px-6 space-y-8">
+    <section className="min-h-screen bg-[#F8FAFF] py-8 md:py-16">
+      <div className="mx-auto max-w-[1240px] px-4 md:px-6 space-y-8 md:space-y-10">
 
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-semibold text-[#111827]">
+        {/* Header */}
+        <div
+          className="
+            flex flex-col gap-4
+            sm:flex-row sm:items-center sm:justify-between
+          "
+        >
+          <h1 className="text-xl sm:text-2xl md:text-3xl text-[#111827] text-right">
             اضافة عمل جديد
           </h1>
 
           <button
             type="button"
             className="
-              bg-[#00D084] text-white text-sm md:text-base
-              px-6 md:px-7 py-2.5 
+              self-start sm:self-auto
+              bg-[#00D084] text-white
+              text-sm md:text-base
+              px-5 md:px-7 py-2.5 
               rounded-lg
               shadow-[0_10px_25px_rgba(16,185,129,0.35)]
               transition-all duration-200
@@ -29,23 +37,25 @@ const AddNewProjectPage: FC = () => {
           </button>
         </div>
 
-
+        {/* Card */}
         <div
           className="
             bg-white rounded-[26px]
             shadow-[0_22px_60px_rgba(15,23,42,0.06)]
-            px-6 md:px-10 py-8 md:py-10
-            space-y-8
+            px-4 sm:px-6 md:px-10
+            py-6 sm:py-8 md:py-10
+            space-y-6 md:space-y-8
           "
         >
-
-          <div className="flex flex-col gap-8">
-            <h2 className="text-xl font-semibold text-[#111827]">
+          {/* Basic info + upload */}
+          <div className="flex flex-col gap-5 md:gap-8">
+            <h2 className="text-lg md:text-xl text-[#111827] text-right">
               المعلومات الاساسية
             </h2>
             <ImageUploadBox />
           </div>
 
+          {/* Title */}
           <div className="space-y-2">
             <label className="block text-sm text-[#111827] text-right">
               عنوان العمل
@@ -56,7 +66,7 @@ const AddNewProjectPage: FC = () => {
               className="
                 w-full h-[50px]
                 rounded-[10px]
-                border border-[#E5E7EB]
+                border! border-[#E5E7EB]!
                 bg-white
                 px-4 text-sm text-[#111827]
                 outline-none
@@ -66,6 +76,7 @@ const AddNewProjectPage: FC = () => {
             />
           </div>
 
+          {/* Skills */}
           <div className="space-y-2">
             <label className="block text-sm text-[#111827] text-right">
               المهارات و الادوات
@@ -73,6 +84,7 @@ const AddNewProjectPage: FC = () => {
             <SkillsTagsBar tags={tags} />
           </div>
 
+          {/* Description */}
           <div className="space-y-2">
             <label className="block text-sm text-[#111827] text-right">
               الوصف

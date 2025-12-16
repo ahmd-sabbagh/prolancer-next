@@ -21,30 +21,45 @@ const ServiceStats: React.FC<ServiceStatsProps> = ({
   isActive,
 }) => {
   return (
-    <div className="flex flex-col items-end gap-6 w-full md:w-auto">
-      <ServiceHeader isActive={isActive} />
+    <div className="flex flex-col items-center lg:items-end gap-4 w-full lg:w-auto">
 
-      <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 justify-end">
-        <div className="flex items-center gap-1">
-          <AiOutlineClockCircle className="w-4 h-4 text-[#00B274]" />
-          <span>{duration}</span>
+      <div className="hidden lg:block lg:self-end">
+        <ServiceHeader isActive={isActive} />
+      </div>
+
+      <div
+        className="
+          w-full
+          flex flex-col lg:flex-row
+          items-center
+          gap-3
+          text-xs text-gray-500
+          justify-center
+          lg:flex-wrap lg:items-center lg:justify-end lg:gap-4
+        "
+      >
+        {/* group of stats */}
+        <div className="flex items-center gap-3  lg:gap-1">
+          <div className="flex items-center gap-1 justify-center lg:basis-auto lg:justify-end">
+            <AiOutlineClockCircle className="w-4 h-4 text-[#00B274]" />
+            <span>{duration}</span>
+          </div>
+
+          <div className="flex items-center gap-1 justify-center lg:basis-auto lg:justify-end">
+            <FiRefreshCcw className="w-4 h-4 text-[#00B274]" />
+            <span>{revisions}</span>
+          </div>
+
+          <div className="flex items-center gap-1 text-sm text-gray-500 justify-center lg:basis-auto lg:justify-end">
+            <LuWallet className="w-4 h-4 text-[#00B274]" />
+            <span>${price}</span>
+          </div>
         </div>
 
-        <div className="flex items-center gap-1">
-          <FiRefreshCcw className="w-4 h-4 text-[#00B274]" />
-          <span>{revisions}</span>
+        {/* share button */}
+        <div className="flex justify-center lg:basis-auto lg:justify-end">
+          <ShareButton />
         </div>
-
-        <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#F3F4F6] text-[11px] text-[#4B5563]">
-          {inQueue}
-        </span>
-
-        <div className="flex items-center gap-1 text-sm text-gray-500">
-          <LuWallet className="w-4 h-4 text-[#00B274]" />
-          <span>${price}</span>
-        </div>
-
-        <ShareButton />
       </div>
     </div>
   );

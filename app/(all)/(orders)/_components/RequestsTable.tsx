@@ -9,7 +9,7 @@ interface RequestsTableProps {
 
 const RequestsTable: React.FC<RequestsTableProps> = ({ requests }) => {
     return (
-        <div className="rounded-2xl bg-white box-shadow2 overflow-hidden hidden md:block">
+<div className="rounded-2xl bg-white box-shadow2 overflow-hidden hidden lg:block">
             <table className="w-full border-collapse text-center">
                 <thead>
                     <tr className="bg-[#171717] text-white text-sm">

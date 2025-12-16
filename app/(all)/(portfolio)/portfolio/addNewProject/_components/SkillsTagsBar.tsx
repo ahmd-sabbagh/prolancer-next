@@ -8,12 +8,13 @@ const SkillsTagsBar: React.FC<SkillsTagsBarProps> = ({ tags }) => {
   return (
     <div
       className="
-        w-full h-[50px]
+        w-full
+        min-h-[50px]
         rounded-[10px]
         border border-[#E5E7EB]
         bg-white
         flex items-center
-        px-3
+        px-3 py-2
         overflow-x-auto
         gap-2
       "
@@ -30,6 +31,7 @@ const SkillsTagsBar: React.FC<SkillsTagsBarProps> = ({ tags }) => {
             text-[11px] tracking-wide
             text-[#374151]
             font-semibold
+            whitespace-nowrap
           "
         >
           {tag}

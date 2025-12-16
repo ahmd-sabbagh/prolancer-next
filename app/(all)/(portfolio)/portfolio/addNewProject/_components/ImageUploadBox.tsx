@@ -29,11 +29,18 @@ const ImageUploadBox: React.FC = () => {
   }, [preview]);
 
   return (
-    <div className="flex items-center gap-5">
+    <div
+      className="
+        flex sm:flex-row
+        items-center
+        gap-4 sm:gap-5
+      "
+    >
       <div
         onClick={handleClick}
         className="
-          w-[170px] h-[170px]
+          w-[140px] h-[140px]
+          md:w-[170px] md:h-[170px]
           rounded-[18px]
           bg-[#E3F9ED]
           flex flex-col items-center justify-center
@@ -53,7 +60,12 @@ const ImageUploadBox: React.FC = () => {
           <img
             src={preview}
             alt="Preview"
-            className="w-[80px] h-[90px] object-cover rounded-lg border border-[#00B27433]"
+            className="
+              w-[80px] h-[90px]
+              object-cover
+              rounded-lg
+              border border-[#00B27433]
+            "
           />
         )}
 
@@ -66,7 +78,7 @@ const ImageUploadBox: React.FC = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-1 text-xs">
+      <div className="flex flex-col gap-1 text-xs sm:text-sm">
         <span className="text-[#111827] font-medium">ارفع صورة</span>
         <span className="text-[#9CA3AF]">JPG 80×90px</span>
       </div>

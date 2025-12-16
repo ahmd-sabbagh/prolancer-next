@@ -9,7 +9,7 @@ interface ProjectsTableProps {
 
 const ProjectsTable: React.FC<ProjectsTableProps> = ({ projects }) => {
   return (
-    <div className="rounded-2xl bg-white box-shadow2 overflow-hidden hidden md:block">
+    <div className="rounded-2xl bg-white box-shadow2 overflow-hidden hidden lg:block">
       <table className="w-full text-right border-collapse">
         <thead>
           <tr className="bg-[#171717] text-white text-sm">

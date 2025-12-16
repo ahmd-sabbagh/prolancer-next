@@ -9,7 +9,7 @@ interface ProjectsMobileListProps {
 
 const ProjectsMobileList: React.FC<ProjectsMobileListProps> = ({ projects }) => {
     return (
-        <div className="space-y-4 md:hidden">
+        <div className="space-y-4 lg:hidden">
             {projects.map((project) => (
                 <div
                     key={project.id}

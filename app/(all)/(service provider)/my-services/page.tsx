@@ -15,9 +15,9 @@ const MyServicesPage: React.FC = () => {
         className="
           mx-auto
           max-w-[1511px]
-          min-h-[658px]
-          pt-[122px]
-          pb-[204px]
+          min-h-screen md:min-h-[658px]
+          pt-16 md:pt-[122px]
+          pb-16 md:pb-[204px]
           px-4
           space-y-8
         "
@@ -28,7 +28,7 @@ const MyServicesPage: React.FC = () => {
           link="/my-services/addNewService/step-1"
         />
 
-        <div className="space-y-[32px]">
+        <div className="space-y-6 md:space-y-[32px]">
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}

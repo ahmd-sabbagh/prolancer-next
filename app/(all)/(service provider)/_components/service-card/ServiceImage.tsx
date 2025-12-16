@@ -8,7 +8,15 @@ interface ServiceImageProps {
 
 const ServiceImage: React.FC<ServiceImageProps> = ({ image, title }) => {
   return (
-    <div className="w-[179px] h-[150px] relative shrink-0">
+    <div
+      className="
+        relative
+        w-full max-w-[179px]
+        h-[190px] sm:h-[150px]
+        shrink-0
+        mx-auto md:mx-0
+      "
+    >
       <Image
         src={image}
         alt={title}
@@ -18,5 +26,6 @@ const ServiceImage: React.FC<ServiceImageProps> = ({ image, title }) => {
     </div>
   );
 };
+
 
 export default ServiceImage;
