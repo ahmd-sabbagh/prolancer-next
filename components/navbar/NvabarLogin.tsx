@@ -1,13 +1,10 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-
 import NavbarTop from "./_components/NavbarTop";
 import NavbarBottom from "./_components/NavbarBottom";
-
 import { heart, bell } from "@/assets";
 import Image from "next/image";
 import { FaRegNewspaper } from "react-icons/fa6";
@@ -23,18 +20,6 @@ export type MenuLink = { href: string; label: string };
 const NvabarLogin: React.FC<Props> = ({ lang }) => {
   const [open, setOpen] = useState<boolean>(false);
   const pathname = usePathname() ?? "/";
-  const t = useTranslations();
-
-  const links: MenuLink[] = useMemo(
-    () => [
-      { href: "/notifications", label: "notification" },
-      { href: "/messages", label: "messages" },
-      { href: "/favorite", label: "favorite" },
-      { href: "/blog", label: "blog" },
-    ],
-    []
-  );
-
   const linkIcons: Record<string, ReactNode> = useMemo(
     () => ({
       notification: (
@@ -57,20 +42,6 @@ const NvabarLogin: React.FC<Props> = ({ lang }) => {
     []
   );
 
-  const nav: NavItem[] = useMemo(
-    () => [
-      { name: t("All sections"), link: "" },
-      { name: t("Graphic and design"), link: "" },
-      { name: t("Programming and technology"), link: "" },
-      { name: t("Electronic marketing"), link: "" },
-      { name: t("Video and montage"), link: "" },
-      { name: t("Writing content"), link: "" },
-      { name: t("WordPress and SEO"), link: "" },
-      { name: t("Advertisement design"), link: "" },
-    ],
-    [t]
-  );
-
   return (
     <>
       <NavbarTop
@@ -78,11 +49,10 @@ const NvabarLogin: React.FC<Props> = ({ lang }) => {
         open={open}
         setOpen={setOpen}
         pathname={pathname}
-        links={links}
         linkIcons={linkIcons}
       />
 
-      <NavbarBottom nav={nav} />
+      <NavbarBottom />
     </>
   );
 };

@@ -2,16 +2,16 @@
 
 import React from "react";
 import Link from "next/link";
-import NotificationItem from "./NotificationItem";
-import type { Notif } from "./notifications.types";
+import MessageItem from "./MessageItem";
+import type { MsgPreview } from "./messages.types";
 
 type Props = {
   open: boolean;
-  items: Notif[];
+  items: MsgPreview[];
   onClose: () => void;
 };
 
-export default function NotificationDropdown({ open, items, onClose }: Props) {
+export default function MessageDropdown({ open, items, onClose }: Props) {
   if (!open) return null;
 
   return (
@@ -21,21 +21,21 @@ export default function NotificationDropdown({ open, items, onClose }: Props) {
     >
       {/* Header */}
       <div className="pt-4">
-        <h6 className="text-sm text-[#6C757D] px-5">الإشعارات</h6>
+        <h6 className="text-sm text-[#6C757D] px-5">الرسائل</h6>
         <div className="mt-3 h-px bg-[#F2F2F2]" />
       </div>
 
       {/* List */}
       <div className="max-h-[420px] overflow-y-auto">
-        {items.map((n, idx) => (
-          <NotificationItem key={n.id} n={n} withBorder={idx !== 0} />
+        {items.map((m, idx) => (
+          <MessageItem key={m.id} m={m} withBorder={idx !== 0} />
         ))}
       </div>
 
       {/* View all */}
       <div className="border-t border-[#F2F2F2]">
         <Link
-          href="/notifications"
+          href="/messages"
           className="block text-center py-3 text-sm text-[#00D388]"
           onClick={onClose}
         >

@@ -1,14 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
-import type { NavItem } from "../NvabarLogin";
+import { useTranslations } from "next-intl";
 
-type Props = {
-  nav: NavItem[];
-};
-
-export default function NavbarBottom({ nav }: Props) {
+export default function NavbarBottom() {
+  const t = useTranslations();
+  const nav = useMemo(
+    () => [
+      { name: t("All sections"), link: "" },
+      { name: t("Graphic and design"), link: "" },
+      { name: t("Programming and technology"), link: "" },
+      { name: t("Electronic marketing"), link: "" },
+      { name: t("Video and montage"), link: "" },
+      { name: t("Writing content"), link: "" },
+      { name: t("WordPress and SEO"), link: "" },
+      { name: t("Advertisement design"), link: "" },
+    ],
+    [t]
+  );
   return (
     <section className="bg-[#353434] py-3 hidden md:block">
       <div className="container flex items-center gap-4 justify-between">

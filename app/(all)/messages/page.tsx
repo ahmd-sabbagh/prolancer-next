@@ -17,7 +17,6 @@ export default function Page() {
   const [search, setSearch] = useState("");
   const [messageText, setMessageText] = useState("");
 
-  // ✅ في الموبايل خلي الرسائل هي اللي تظهر
   const [showList, setShowList] = useState(false);
 
   const filteredChats = chats.filter((c) =>
@@ -32,8 +31,6 @@ export default function Page() {
         <Title title={"الرسائل"} />
 
         <div className="bg-white rounded-xl border border-[#ECECEC] overflow-hidden mt-8">
-          {/* ✅ موبايل: بدون ارتفاع ثابت (الصفحة تسكرول)
-              ✅ md+: ارتفاع ثابت للشاشة الداخلية */}
           <div className="flex md:h-[650px]">
             {/* Sidebar */}
             <div className={cn("w-full md:w-auto", showList ? "block" : "hidden md:block")}>
@@ -42,21 +39,19 @@ export default function Page() {
                 activeChatId={activeChatId}
                 onSelectChat={(id) => {
                   setActiveChatId(id);
-                  setShowList(false); // يقفل القائمة على الموبايل بعد الاختيار
+                  setShowList(false);
                 }}
                 search={search}
                 onSearchChange={setSearch}
               />
             </div>
 
-            {/* Chat area */}
             <div
               className={cn(
                 "flex-1 flex flex-col md:border-e md:border-[#F0F0F0]",
                 showList ? "hidden md:flex" : "flex"
               )}
             >
-              {/* ✅ زر يفتح القائمة على الموبايل */}
               <div className="md:hidden px-4 py-3 border-b border-[#F0F0F0] bg-white">
                 <button
                   type="button"
@@ -69,8 +64,6 @@ export default function Page() {
 
               <ChatHeader chat={activeChat} />
 
-              {/* ✅ موبايل: الرسائل تتمدد طبيعي داخل الصفحة (بدون scroll داخلي)
-                  ✅ md+: الرسائل داخل مساحة ثابتة */}
               <div className="flex-1 bg-[#FAFAFA] md:min-h-0">
                 <Messages messages={(activeChat?.messages ?? [])} />
               </div>

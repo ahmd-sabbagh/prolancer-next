@@ -16,12 +16,6 @@ export default function NotificationsPage() {
         <div className="bg-white rounded-xl shadow-lg border border-[#EDEDED] mt-8 overflow-hidden">
           <NotificationsList items={notifications} />
         </div>
-
-        <div className="mt-6 md:hidden text-center">
-          <Link href="/" className="text-sm text-[#00D388] hover:underline">
-            الرجوع للرئيسية
-          </Link>
-        </div>
       </div>
     </section>
   );

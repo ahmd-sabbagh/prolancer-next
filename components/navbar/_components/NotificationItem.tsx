@@ -30,7 +30,7 @@ export default function NotificationItem({ n, withBorder }: Props) {
       {/* content */}
       <div className="flex-1">
         <div className="flex justify-between gap-3">
-          <div className="text-sm font-semibold text-[#262626] leading-5">
+          <div className="text-sm text-[#262626] leading-5">
             {n.title}
           </div>
           <div className="w-[70px] text-xs text-[#6C757D] text-start shrink-0">

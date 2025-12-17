@@ -1,18 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { IoClose } from "react-icons/io5";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import type { MenuLink } from "../NvabarLogin";
 
 type Props = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   pathname: string;
-  links: MenuLink[];
   linkIcons: Record<string, React.ReactNode>;
 };
 
@@ -20,9 +18,17 @@ export default function MobileMenu({
   open,
   setOpen,
   pathname,
-  links,
   linkIcons,
 }: Props) {
+  const links = useMemo(
+    () => [
+      { href: "/notifications", label: "notification" },
+      { href: "/messages", label: "messages" },
+      { href: "/favorite", label: "favorite" },
+      { href: "/blog", label: "blog" },
+    ],
+    []
+  );
   return (
     <ul
       className={cn(

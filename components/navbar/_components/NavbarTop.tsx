@@ -3,17 +3,14 @@
 import React from "react";
 import SearchNav from "./SearchNav";
 import NavbarBrand from "./NavbarBrand";
-
 import MobileMenu from "./MobileMenu";
 import NavbarActions from "./NavbarActions";
-import type { MenuLink } from "../NvabarLogin";
 
 type Props = {
   lang: string;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   pathname: string;
-  links: MenuLink[];
   linkIcons: Record<string, React.ReactNode>;
 };
 
@@ -22,7 +19,6 @@ export default function NavbarTop({
   open,
   setOpen,
   pathname,
-  links,
   linkIcons,
 }: Props) {
   return (
@@ -36,7 +32,6 @@ export default function NavbarTop({
           open={open}
           setOpen={setOpen}
           pathname={pathname}
-          links={links}
           linkIcons={linkIcons}
         />
 
