@@ -1,0 +1,47 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import NotificationItem from "./NotificationItem";
+import type { Notif } from "./notifications.types";
+
+type Props = {
+  open: boolean;
+  items: Notif[];
+  onClose: () => void;
+};
+
+export default function NotificationDropdown({ open, items, onClose }: Props) {
+  if (!open) return null;
+
+  return (
+    <div
+      className="hidden lg:block absolute end-0 mt-3 w-[360px] bg-white rounded-xl shadow-lg border border-[#EDEDED] overflow-hidden z-50"
+      role="menu"
+    >
+      {/* Header */}
+      <div className="py-4">
+        <h6 className="text-sm text-[#6C757D] px-5">الإشعارات</h6>
+        <div className="mt-3 h-px bg-[#F2F2F2]" />
+      </div>
+
+      {/* List */}
+      <div className="max-h-[420px] overflow-y-auto">
+        {items.map((n, idx) => (
+          <NotificationItem key={n.id} n={n} withBorder={idx !== 0} />
+        ))}
+      </div>
+
+      {/* View all */}
+      <div className="border-t border-[#F2F2F2]">
+        <Link
+          href="/notifications"
+          className="block text-center py-3 text-sm text-[#00D388]"
+          onClick={onClose}
+        >
+          عرض الكل
+        </Link>
+      </div>
+    </div>
+  );
+}
