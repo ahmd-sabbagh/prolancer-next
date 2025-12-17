@@ -22,14 +22,15 @@ const ImportantLinks = () => {
         </ul>
 
         <ul className="flex flex-col gap-2">
-          <Link href="/" className="text-white">
+          <Link href="/contact-us" className="text-white">
             {t("contact")}
           </Link>
           <Link href="" className="text-white">
             {t("terms_and_conditions")}
           </Link>
-          <Link href="" className="text-white">
-            {t("privacy_policy")}
+          <Link href="/support" className="text-white">
+            {/* {t("privacy_policy")} */}
+            {"الاستفسارات والدعم"}
           </Link>
         </ul>
       </div>
