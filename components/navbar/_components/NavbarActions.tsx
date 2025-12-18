@@ -7,8 +7,8 @@ import Image from "next/image";
 import Language from "./Language";
 import TransferProvider from "./TransferProvider";
 import ProfileIcon from "./ProfileIcon";
-import Message from "./Message";
-import Notification from "./Notification";
+import Message from "./messages/Message";
+import Notification from "./notifications/Notification";
 
 import { LuSearch } from "react-icons/lu";
 import { FaRegNewspaper } from "react-icons/fa6";
