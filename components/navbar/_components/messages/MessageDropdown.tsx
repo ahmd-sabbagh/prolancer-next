@@ -28,7 +28,12 @@ export default function MessageDropdown({ open, items, onClose }: Props) {
       {/* List */}
       <div className="max-h-[420px] overflow-y-auto">
         {items.map((m, idx) => (
-          <MessageItem key={m.id} m={m} withBorder={idx !== 0} />
+          <MessageItem
+            key={m.id}
+            m={m}
+            withBorder={idx !== 0}
+            onClick={onClose}
+          />
         ))}
       </div>
 

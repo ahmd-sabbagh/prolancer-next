@@ -1,21 +1,29 @@
+"use client";
 import { landing } from "@/assets";
 import Image from "next/image";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { FaStar } from "react-icons/fa6";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import { useAppSelector } from "@/lib/store/hooks";
 
 const Card = () => {
   const t = useTranslations();
+  const router = useRouter();
+  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
+
+  const handleGoMessages = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isLoggedIn) {
+      e.preventDefault();
+      router.replace("/login");
+      return;
+    }
+  };
+
   return (
-    <div
-      className="bg-white box-shadow2 rounded-[14px] p-4 pb-5 
-  transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-black/10 group"
-    >
-      <div
-        className="relative w-20 h-20 mx-auto rounded-full 
-    overflow-hidden transition-all duration-300 group-hover:scale-110"
-      >
+    <div className="bg-white box-shadow2 rounded-[14px] p-4 pb-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-black/10 group">
+      <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden transition-all duration-300 group-hover:scale-110">
         <Image
           src={landing}
           alt="profile image"
@@ -52,18 +60,16 @@ const Card = () => {
         <div className="mt-5 pt-2.5 border-t border-[#E4E4E4]">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-1">
-              <strong className="text-lg font-semibold dark-color">
-                {"$22"}
-              </strong>
+              <strong className="text-lg font-semibold dark-color">{"$22"}</strong>
               <span className="text-[#67696E]">{"/ساعة"}</span>
             </span>
             <span className="text-[#67696E] text-sm">{"234 مشروع"}</span>
           </div>
 
           <Link
-            href={""}
-            className="block mt-5 text-center bg-[#00D3881A] green-color rounded-xl py-3 text-sm
-        transition-all duration-300 hover:bg-[#00D38833]"
+            href="/messages"
+            onClick={handleGoMessages}
+            className="block mt-5 text-center bg-[#00D3881A] green-color rounded-xl py-3 text-sm transition-all duration-300 hover:bg-[#00D38833]"
           >
             {t("view details")}
           </Link>

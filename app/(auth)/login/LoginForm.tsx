@@ -6,13 +6,17 @@ import { lock, mail } from "@/assets";
 import Link from "next/link";
 import BtnSubmit from "../_components/BtnSubmit";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/lib/store/hooks";
+import { login } from "@/lib/store/slices/authSlice";
 
 const LoginForm = () => {
   const t = useTranslations();
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    dispatch(login());
     router.replace("/");
   };
   return (

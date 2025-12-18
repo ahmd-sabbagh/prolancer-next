@@ -1,3 +1,5 @@
+"use client";
+
 import Easily from "@/components/Easily/Easily";
 import Faqs from "@/components/faqs/Faqs";
 import HowItWork from "@/components/howItWork/HowItWork";
@@ -6,13 +8,16 @@ import NewlyAddedServices from "@/components/newlyAddedServices/NewlyAddedServic
 import NewlyAddedServicesAuth from "./components/newlyAddedServicesAuth/NewlyAddedServicesAuth";
 import Competencies from "./components/competencies/Competencies";
 import Experts from "./components/experts/Experts";
+import { useAppSelector } from "@/lib/store/hooks";
 
 const HomePage = () => {
+  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
+
   return (
     <>
       <Landing />
       <NewlyAddedServicesAuth />
-      <Competencies />
+      {!isLoggedIn && <Competencies />}
       <Experts />
       <HowItWork />
       <NewlyAddedServices />

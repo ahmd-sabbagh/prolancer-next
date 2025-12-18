@@ -4,6 +4,7 @@ import "./globals.css";
 import { getLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import localFont from "next/font/local";
+import ReduxProvider from "@/lib/store/ReduxProvider";
 
 const madani = localFont({
   src: [
@@ -29,14 +30,14 @@ export default async function RootLayout({
   const locale = await getLocale();
   const messages = await getMessages();
   return (
-    <html lang={locale} dir={locale == "ar" ? "rtl" : "ltr"}>
-      <NextIntlClientProvider messages={messages}>
-        <body
-          className={`${madani.className} antialiased`}
-        >
-          {children}
-        </body>
-      </NextIntlClientProvider>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+      <body className={`${madani.className} antialiased`}>
+        <NextIntlClientProvider messages={messages}>
+          <ReduxProvider>
+            {children}
+          </ReduxProvider>
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

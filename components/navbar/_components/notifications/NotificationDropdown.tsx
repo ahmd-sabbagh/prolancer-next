@@ -28,7 +28,12 @@ export default function NotificationDropdown({ open, items, onClose }: Props) {
       {/* List */}
       <div className="max-h-[420px] overflow-y-auto">
         {items.map((n, idx) => (
-          <NotificationItem key={n.id} n={n} withBorder={idx !== 0} />
+          <NotificationItem
+            key={n.id}
+            n={n}
+            withBorder={idx !== 0}
+            onClick={onClose}
+          />
         ))}
       </div>
 

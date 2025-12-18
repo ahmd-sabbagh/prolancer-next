@@ -13,7 +13,19 @@ type Props = {
 
 export default function MessageTrigger({ open, onToggle, unreadTotal = 0 }: Props) {
   const Badge = unreadTotal > 0 ? (
-    <span className="absolute -top-1 -start-1 min-w-[18px] h-[18px] px-1 rounded-full bg-[#F04438] text-white text-[11px] leading-[18px] text-center">
+    <span className="
+      absolute 
+      -top-1.5 -start-1.5
+      min-w-[15px] h-[15px]
+      px-[3px]
+      rounded-full
+      bg-[#F04438]
+      text-white
+      text-[10px]
+      leading-[15px]
+      text-center
+      font-medium
+    ">
       {unreadTotal > 99 ? "99+" : unreadTotal}
     </span>
   ) : null;

@@ -26,7 +26,7 @@ const Services = () => {
       group
     p-4 md:p-8 bg-white rounded-lg shadow-sm border border-transparent
     transition-all duration-300
-    hover:scale-[1.02] hover:border-[#E4E4E4] hover:shadow-md hover:bg-[#fafafa]
+    hover:scale-[1.01] hover:border-[#E4E4E4] hover:shadow-md hover:bg-[#fafafa]
   "
     >
       {/* top */}

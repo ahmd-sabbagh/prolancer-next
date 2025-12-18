@@ -6,12 +6,16 @@ import BtnSubmit from "../_components/BtnSubmit";
 import { LuSearch } from "react-icons/lu";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/lib/store/hooks";
+import { login } from "@/lib/store/slices/authSlice";
 
 const Form = () => {
   const t = useTranslations();
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    dispatch(login());
     router.replace("/");
   };
   const options = ["React", "Next.js", "TypeScript", "Redux Toolkit"];

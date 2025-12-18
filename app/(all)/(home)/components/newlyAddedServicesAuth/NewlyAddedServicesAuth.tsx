@@ -10,7 +10,7 @@ const NewlyAddedServicesAuth = () => {
   const t = useTranslations();
   const locale = useLocale();
   return (
-    <section className="bg-[#F8FAFF] pb-10">
+    <section className="bg-[#F8FAFF] pb-10 pt-10">
       <div className="container">
         <div>
           <h2 className="md:text-2xl dark-color">
