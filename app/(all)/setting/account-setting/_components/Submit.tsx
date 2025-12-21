@@ -9,12 +9,12 @@ const Submit = () => {
   };
   return (
     <form onSubmit={onSubmit} className="flex items-center justify-between">
-      <h2 className="text-2xl md:text-3xl dark-color">
+      <h2 className="text-xl sm:text-2xl md:text-3xl dark-color">
         {t("account setting")}
       </h2>
       <button
         type="submit"
-        className="bg-green-color py-2 px-6 text-white text-sm rounded-xl"
+        className="bg-green-color py-2 px-4 text-white text-sm rounded-xl"
       >
         {t("save_edits")}
       </button>
@@ -23,3 +23,4 @@ const Submit = () => {
 };
 
 export default Submit;
+

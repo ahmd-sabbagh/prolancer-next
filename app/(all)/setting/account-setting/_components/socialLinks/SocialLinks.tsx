@@ -47,33 +47,6 @@ export default function SocialInputs() {
       <div className="grid md:grid-cols-2 md:gap-x-8 gap-y-5 mt-5">
         {links.map((value, index) => (
           <div key={index} className="flex items-center gap-3">
-
-            {/* INPUT WRAPPER */}
-            <div
-              className={cn(
-                "bg-[#F5F7F9] flex items-center py-3 px-4.5 grow rounded-sm border border-transparent ",
-                focusIndex === index && " border-[#00D388]!"
-              )}
-            >
-              <button
-                onClick={() => clearField(index)}
-                className="w-5.5 h-5.5 rounded-full flex-center border"
-              >
-                <IoClose />
-              </button>
-
-              <input
-                type="text"
-                value={value}
-                onChange={(e) => handleChange(index, e.target.value)}
-                placeholder="URL"
-                className="grow"
-                dir="ltr"
-                onFocus={() => setFocusIndex(index)}
-                onBlur={() => setFocusIndex(null)}
-              />
-            </div>
-
             {/* ICON */}
             <div className="w-8 h-8">
               <Image
@@ -82,7 +55,29 @@ export default function SocialInputs() {
                 className="w-full h-full object-contain"
               />
             </div>
-
+            {/* INPUT WRAPPER */}
+            <div
+              className={cn(
+                "bg-[#F5F7F9] flex items-center py-3 px-4.5 grow rounded-sm border border-transparent ",
+                focusIndex === index && " border-[#00D388]!"
+              )}
+            >
+              <input
+                type="text"
+                value={value}
+                onChange={(e) => handleChange(index, e.target.value)}
+                placeholder={t("url")}
+                className="grow"
+                onFocus={() => setFocusIndex(index)}
+                onBlur={() => setFocusIndex(null)}
+              />
+              <button
+                onClick={() => clearField(index)}
+                className="w-5.5 h-5.5 rounded-full flex-center border"
+              >
+                <IoClose />
+              </button>
+            </div>
           </div>
         ))}
       </div>

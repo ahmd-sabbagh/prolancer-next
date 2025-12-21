@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { IoClose } from "react-icons/io5";
 import { MdKeyboardArrowLeft } from "react-icons/md";
+import { useTranslations } from "next-intl";
 
 type Props = {
   open: boolean;
@@ -29,6 +30,9 @@ export default function MobileMenu({
     ],
     []
   );
+
+  const t = useTranslations();
+
   return (
     <ul
       className={cn(
@@ -36,6 +40,7 @@ export default function MobileMenu({
         open ? "open-nav" : "close-nav"
       )}
     >
+      {/* Header */}
       <div className="lg:hidden flex items-center justify-between mb-6">
         <Logo />
         <button
@@ -47,6 +52,7 @@ export default function MobileMenu({
         </button>
       </div>
 
+      {/* Links */}
       {links.map((link, idx) => (
         <li key={idx}>
           <Link
@@ -58,10 +64,10 @@ export default function MobileMenu({
             onClick={() => setOpen(false)}
           >
             <span className="flex items-center gap-3">
-              {linkIcons[link.label] ? (
+              {linkIcons[link.label] && (
                 <span className="shrink-0">{linkIcons[link.label]}</span>
-              ) : null}
-              <span>{link.label}</span>
+              )}
+              <span>{t(link.label)}</span>
             </span>
 
             <span className="text-xl ltr:rotate-180">
