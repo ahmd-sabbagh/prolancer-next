@@ -22,7 +22,7 @@ const LoginForm = () => {
   return (
     <form onSubmit={onSubmit} className="mt-8 flex flex-col gap-5">
       <Input type="email" placeholder={t("email")} label icon={mail} />
-      <Input type="password" placeholder={t("password")} icon={lock} />
+      <Input type="password" placeholder={t("password")} label icon={lock} />
       <Link href="/recovery-password" className="text-xs green-color">
         {t("forget")}
       </Link>

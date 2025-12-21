@@ -25,7 +25,7 @@ export default function MobileMenu({
       { href: "/notifications", label: "notification" },
       { href: "/messages", label: "messages" },
       { href: "/favorite", label: "favorite" },
-      { href: "/blog", label: "blog" },
+      // { href: "/blog", label: "blog" },
     ],
     []
   );

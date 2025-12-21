@@ -29,8 +29,7 @@ const ImportantLinks = () => {
             {t("terms_and_conditions")}
           </Link>
           <Link href="/support" className="text-white">
-            {/* {t("privacy_policy")} */}
-            {"الاستفسارات والدعم"}
+            {t("support")}
           </Link>
         </ul>
       </div>

@@ -26,10 +26,10 @@ export default function NavbarActions({ lang }: Props) {
           <Image src={heart} alt="heart icon" fill loading="lazy" sizes="18px" />
         </div>
       </Link>
-
+      {/* 
       <Link href={"/blog"} className="hidden lg:block text-white text-xl">
         <FaRegNewspaper />
-      </Link>
+      </Link> */}
 
       {/* search mobile */}
       <Link href={""} className="lg:hidden block text-white text-xl">

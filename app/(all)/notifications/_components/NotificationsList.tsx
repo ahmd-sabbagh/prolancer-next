@@ -11,7 +11,7 @@ type Props = {
 export default function NotificationsList({ items }: Props) {
   if (!items.length) {
     return (
-      <div className="py-16 text-center text-[#6C757D]">
+      <div className="py-20 text-center text-[#6C757D] text-[16px]">
         لا توجد إشعارات حالياً
       </div>
     );

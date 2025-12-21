@@ -24,16 +24,14 @@ const Input: React.FC<InputProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   return (
     <div
-      className={`relative px-5 py-[22px] rounded-xl border flex items-center ${
-        isFocused ? "border-[#1DBF73]" : "border-[#0000000D]"
-      }`}
+      className={`relative px-5 py-[22px] rounded-xl border flex items-center ${isFocused ? "border-[#1DBF73]" : "border-[#0000000D]"
+        }`}
     >
       {label && (
         <div className=" absolute px-2 bg-white -top-4  start-6">
           <label
-            className={`text-xs ${
-              isFocused ? "text-[#1DBF73]" : "text-[#00000066]"
-            }`}
+            className={`text-xs ${isFocused ? "text-[#1DBF73]" : "text-[#00000066]"
+              }`}
             htmlFor={type}
           >
             {placeholder}
@@ -57,10 +55,10 @@ const Input: React.FC<InputProps> = ({
           type === "email"
             ? "email"
             : type === "password"
-            ? "current-password"
-            : type === "tel"
-            ? "tel"
-            : "off"
+              ? "current-password"
+              : type === "tel"
+                ? "tel"
+                : "off"
         }
       />
     </div>

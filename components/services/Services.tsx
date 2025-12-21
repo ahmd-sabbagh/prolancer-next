@@ -19,7 +19,11 @@ const Item = ({ icon, text }: ItemProps) => {
   );
 };
 
-const Services = () => {
+interface FavProps {
+  defaultFav?: boolean;
+}
+
+const Services = ({ defaultFav = false }: FavProps) => {
   return (
     <div
       className="
@@ -60,7 +64,7 @@ const Services = () => {
           <div className="p-2 bg-[#9696961A] rounded-lg text-[#969696] text-xs">
             {"منذ 10 دقائق"}
           </div>
-          <Fav />
+          <Fav defaultFav={defaultFav} />
         </div>
       </div>
 

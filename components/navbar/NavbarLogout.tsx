@@ -23,7 +23,7 @@ const NavbarLogout: React.FC<Props> = ({ lang }) => {
   const links = [
     { href: "/", label: "home" },
     { href: "/discover", label: "discover" },
-    { href: "/blog", label: "blog" },
+    // { href: "/blog", label: "blog" },
     { href: "/support", label: "support" },
     { href: "/contact-us", label: "contact" },
   ];

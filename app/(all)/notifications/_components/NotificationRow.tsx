@@ -12,18 +12,23 @@ type Props = {
 export default function NotificationRow({ n, withBorder }: Props) {
   return (
     <div
-      className={`px-5 py-4 flex items-center gap-4 ${
-        withBorder ? "border-t border-[#F2F2F2]" : ""
-      }`}
+      className={`
+        px-6 py-[24px]
+        flex items-center gap-5
+        transition-colors duration-200
+        hover:bg-[#F8FAFF]
+        cursor-pointer
+        ${withBorder ? "border-t border-[#F2F2F2]" : ""}
+      `}
     >
       {/* icon */}
-      <div className="relative w-9 h-9 rounded-full flex items-center justify-center shrink-0">
+      <div className="relative w-12 h-12 rounded-full flex items-center justify-center shrink-0">
         {n.unread ? (
-          <span className="absolute top-1 start-1 w-2 h-2 rounded-full bg-[#F04438]" />
+          <span className="absolute top-1 start-1 w-3 h-3 rounded-full bg-[#F04438]" />
         ) : null}
 
         <FiBell
-          className={`text-[18px] ${
+          className={`text-[24px] ${
             n.unread ? "text-[#00D388]" : "text-[#ADB5BD]"
           }`}
         />
@@ -31,16 +36,19 @@ export default function NotificationRow({ n, withBorder }: Props) {
 
       {/* content */}
       <div className="flex-1">
-        <div className="flex justify-between gap-3">
-          <div className="text-sm font-semibold text-[#262626] leading-5">
+        <div className="flex justify-between gap-4">
+          <div className="text-[17px] font-semibold text-[#262626] leading-7">
             {n.title}
           </div>
-          <div className="w-[70px] text-xs text-[#6C757D] text-start shrink-0">
+
+          <div className="w-[80px] text-[14px] text-[#6C757D] shrink-0">
             {n.time}
           </div>
         </div>
 
-        <p className="text-xs text-[#6C757D] mt-1 leading-5">{n.desc}</p>
+        <p className="text-[15px] text-[#6C757D] mt-2 leading-7">
+          {n.desc}
+        </p>
       </div>
     </div>
   );

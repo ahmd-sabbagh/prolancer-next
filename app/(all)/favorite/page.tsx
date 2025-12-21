@@ -11,10 +11,10 @@ const FavoritePage = () => {
         <Title title={t("Services you liked")} />
         {/* Services */}
         <div className="mt-8 flex flex-col gap-8">
-          <Services />
-          <Services />
-          <Services />
-          <Services />
+          <Services defaultFav />
+          <Services defaultFav />
+          <Services defaultFav />
+          <Services defaultFav />
         </div>
       </div>
     </section>
