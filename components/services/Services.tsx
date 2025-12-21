@@ -1,7 +1,8 @@
 import { clock, layer, location, walet, wanted } from "@/assets";
 import Image, { StaticImageData } from "next/image";
 import Fav from "./_components/Fav";
-import Link from "next/link";
+import Link from "next/link"; import { useTranslations } from "next-intl";
+
 interface ItemProps {
   icon: StaticImageData;
   text: string;
@@ -24,6 +25,8 @@ interface FavProps {
 }
 
 const Services = ({ defaultFav = false }: FavProps) => {
+  const t = useTranslations();
+
   return (
     <div
       className="
@@ -84,7 +87,7 @@ const Services = ({ defaultFav = false }: FavProps) => {
         transition-all duration-300 hover:scale-105 hover:shadow-lg
       "
         >
-          {"عرض التفاصيل"}
+          {t("view details")}
         </Link>
       </div>
     </div>

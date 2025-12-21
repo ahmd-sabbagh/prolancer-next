@@ -2,6 +2,7 @@ import React from "react";
 import { RiMessage2Fill } from "react-icons/ri";
 import StatusBadge from "./StatusBadge";
 import { WorkRequest } from "./requests-data";
+import Link from "next/link";
 
 interface RequestsTableProps {
     requests: WorkRequest[];
@@ -9,7 +10,7 @@ interface RequestsTableProps {
 
 const RequestsTable: React.FC<RequestsTableProps> = ({ requests }) => {
     return (
-<div className="rounded-2xl bg-white box-shadow2 overflow-hidden hidden lg:block">
+        <div className="rounded-2xl bg-white box-shadow2 overflow-hidden hidden lg:block">
             <table className="w-full border-collapse text-center">
                 <thead>
                     <tr className="bg-[#171717] text-white text-sm">
@@ -68,18 +69,20 @@ const RequestsTable: React.FC<RequestsTableProps> = ({ requests }) => {
                             </td>
 
                             <td className="px-6 h-[87px] align-middle">
-                                <button
-                                    type="button"
-                                    className="
-                    flex items-center justify-center
-                    w-9 h-9 rounded-full border border-[#00D084] 
-                    text-[#00D084] 
-                    transition-all duration-200
-                    hover:bg-[#00D084] hover:text-white hover:border-[#00D084]
-                  "
-                                >
-                                    <RiMessage2Fill className="w-5 h-5" />
-                                </button>
+                                <Link href="/messages">
+                                    <button
+                                        type="button"
+                                        className="
+                                            flex items-center justify-center
+                                            w-9 h-9 rounded-full border border-[#00D084] 
+                                            text-[#00D084] 
+                                            transition-all duration-200
+                                            hover:bg-[#00D084] hover:text-white hover:border-[#00D084]
+                                        "
+                                    >
+                                        <RiMessage2Fill className="w-5 h-5" />
+                                    </button>
+                                </Link>
                             </td>
                         </tr>
                     ))}

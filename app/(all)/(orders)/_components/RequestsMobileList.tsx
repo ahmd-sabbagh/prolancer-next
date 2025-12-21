@@ -2,6 +2,7 @@ import React from "react";
 import { RiMessage2Fill } from "react-icons/ri";
 import StatusBadge from "./StatusBadge";
 import { WorkRequest } from "./requests-data";
+import Link from "next/link";
 
 interface RequestsMobileListProps {
     requests: WorkRequest[];
@@ -9,7 +10,7 @@ interface RequestsMobileListProps {
 
 const RequestsMobileList: React.FC<RequestsMobileListProps> = ({ requests }) => {
     return (
-<div className="space-y-4 lg:hidden">
+        <div className="space-y-4 lg:hidden">
             {requests.map((item) => (
                 <div
                     key={item.id}
@@ -41,12 +42,14 @@ const RequestsMobileList: React.FC<RequestsMobileListProps> = ({ requests }) => 
                             </div>
                         </div>
 
-                        <button
-                            type="button"
-                            className="flex items-center justify-center w-9 h-9 rounded-full border border-[#00D084] text-[#00D084] transition-all duration-200 hover:bg-[#00D084] hover:text-white hover:border-[#00D084] flex-shrink-0"
-                        >
-                            <RiMessage2Fill className="w-5 h-5" />
-                        </button>
+                        <Link href="/messages">
+                            <button
+                                type="button"
+                                className="flex items-center justify-center w-9 h-9 rounded-full border border-[#00D084] text-[#00D084] transition-all duration-200 hover:bg-[#00D084] hover:text-white hover:border-[#00D084] flex-shrink-0"
+                            >
+                                <RiMessage2Fill className="w-5 h-5" />
+                            </button>
+                        </Link>
                     </div>
 
 

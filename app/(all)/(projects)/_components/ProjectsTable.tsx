@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { RiMessage2Fill } from "react-icons/ri";
 import { Project } from "./projects-data";
 import ProjectStatusBadge from "./ProjectStatusBadge";
+import Link from "next/link";
 
 interface ProjectsTableProps {
   projects: Project[];
@@ -40,9 +41,11 @@ const ProjectsTable: React.FC<ProjectsTableProps> = ({ projects }) => {
               </td>
               <td className="px-6 h-[87px] align-middle text-center">{project.clientName}</td>
               <td className="px-6 h-[87px] align-middle text-center">
-                <button className="flex items-center justify-center w-9 h-9 rounded-full border border-[#00D084] text-[#00D084] transition-all duration-200 hover:bg-[#00D084] hover:text-white hover:border-[#00D084]">
-                  <RiMessage2Fill className="w-5 h-5" />
-                </button>
+                <Link href="/messages">
+                  <button className="flex items-center justify-center w-9 h-9 rounded-full border border-[#00D084] text-[#00D084] transition-all duration-200 hover:bg-[#00D084] hover:text-white hover:border-[#00D084]">
+                    <RiMessage2Fill className="w-5 h-5" />
+                  </button>
+                </Link>
               </td>
             </tr>
           ))}

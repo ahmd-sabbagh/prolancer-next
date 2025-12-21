@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { RiMessage2Fill } from "react-icons/ri";
 import { Project } from "./projects-data";
 import ProjectStatusBadge from "./ProjectStatusBadge";
+import Link from "next/link";
 
 interface ProjectsMobileListProps {
   projects: Project[];
@@ -23,9 +24,11 @@ const ProjectsMobileList: React.FC<ProjectsMobileListProps> = ({ projects }) => 
                 <p className="text-xs text-gray-500 mt-1">#{project.id}</p>
               </div>
             </div>
-            <button className="flex items-center justify-center w-9 h-9 rounded-full border border-[#00D084] text-[#00D084] transition-all duration-200 hover:bg-[#00D084] hover:text-white hover:border-[#00D084] flex-shrink-0">
-              <RiMessage2Fill className="w-5 h-5" />
-            </button>
+            <Link href="/messages">
+              <button className="flex items-center justify-center w-9 h-9 rounded-full border border-[#00D084] text-[#00D084] transition-all duration-200 hover:bg-[#00D084] hover:text-white hover:border-[#00D084] flex-shrink-0">
+                <RiMessage2Fill className="w-5 h-5" />
+              </button>
+            </Link>
           </div>
 
           <div className="mb-4">
