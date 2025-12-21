@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { FiLayers } from "react-icons/fi";
+import { useTranslations } from "next-intl";
 
 interface ServiceInfoProps {
   title: string;
@@ -15,6 +16,8 @@ const ServiceInfo: React.FC<ServiceInfoProps> = ({
   rate,
   reviewsCount,
 }) => {
+  const t = useTranslations();
+
   return (
     <div className="flex-1 lg:pr-6 flex flex-col items-center lg:items-start gap-3 text-center lg:text-right">
       {/* CATEGORY */}
@@ -37,7 +40,7 @@ const ServiceInfo: React.FC<ServiceInfoProps> = ({
           {rate}
         </span>
         <span className="text-[#8A8A8A] text-[14px] md:text-[16px] leading-[26px]">
-          ({reviewsCount} تقييم)
+          ({reviewsCount} {t("ratings")})
         </span>
       </div>
     </div>

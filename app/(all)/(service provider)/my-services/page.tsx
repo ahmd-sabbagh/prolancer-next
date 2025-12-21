@@ -2,31 +2,26 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
-import TitleLink from "../_components/TitleLink";
 import ServiceCard from "../_components/service-card/ServiceCard";
 import { services } from "../_components/services-data";
+import Link from "next/link";
+import Header from "../_components/Header";
 
 const MyServicesPage: React.FC = () => {
   const t = useTranslations();
 
   return (
-    <section className="bg-[#F8FAFF]">
-      <div
-        className="
-          mx-auto
-          max-w-[1511px]
-          min-h-screen md:min-h-[658px]
-          pt-16 md:pt-[122px]
-          pb-16 md:pb-[204px]
-          px-4
-          space-y-8
-        "
-      >
-        <TitleLink
-          title={t("myServices")}
-          nameLink={t("Add a service")}
-          link="/my-services/addNewService/step-1"
-        />
+    <section className="min-h-screen bg-[#F6F8FB] pb-10">
+      <div className="container pt-8">
+        <div className="mb-9 mt-7 flex justify-between">
+          <Header />
+          <Link
+            href="/my-services/addNewService/step-1"
+            className="py-2 px-6 rounded-xl bg-green-color text-white text-sm"
+          >
+            {t("Add a service")}
+          </Link>
+        </div>
 
         <div className="space-y-6 md:space-y-[32px]">
           {services.map((service) => (
