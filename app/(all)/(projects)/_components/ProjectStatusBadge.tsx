@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 import { ProjectStatus } from "./projects-data";
 
 interface ProjectStatusBadgeProps {
@@ -12,27 +13,22 @@ function getStatusClasses(status: ProjectStatus, variant: "chip" | "pill") {
       ? "inline-flex items-center justify-center px-4 py-1 rounded-full text-xs"
       : "inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium";
 
-  if (status === "done") {
-    return `${base} bg-[#E1F7EC] text-[#00B274]`;
-  }
-
-  return `${base} bg-[#FFEED6] text-[#F59E0B]`;
-}
-
-function getStatusLabel(status: ProjectStatus) {
-  return status === "done" ? "مكتمل" : "جاري العمل";
+  return status === "done"
+    ? `${base} bg-[#E1F7EC] text-[#00B274]`
+    : `${base} bg-[#FFEED6] text-[#F59E0B]`;
 }
 
 const ProjectStatusBadge: React.FC<ProjectStatusBadgeProps> = ({
   status,
   variant = "pill",
 }) => {
-  const isDone = status === "done";
+  const t = useTranslations();
+  const label = status === "done" ? t("completed") : t("in_progress");
 
   if (variant === "chip") {
     return (
       <span className={getStatusClasses(status, "chip")}>
-        {isDone ? (
+        {status === "done" ? (
           <>
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path
@@ -41,7 +37,7 @@ const ProjectStatusBadge: React.FC<ProjectStatusBadgeProps> = ({
                 clipRule="evenodd"
               />
             </svg>
-            {getStatusLabel(status)}
+            {label}
           </>
         ) : (
           <>
@@ -56,18 +52,14 @@ const ProjectStatusBadge: React.FC<ProjectStatusBadgeProps> = ({
                 clipRule="evenodd"
               />
             </svg>
-            {getStatusLabel(status)}
+            {label}
           </>
         )}
       </span>
     );
   }
 
-  return (
-    <span className={getStatusClasses(status, "pill")}>
-      {getStatusLabel(status)}
-    </span>
-  );
+  return <span className={getStatusClasses(status, "pill")}>{label}</span>;
 };
 
 export default ProjectStatusBadge;

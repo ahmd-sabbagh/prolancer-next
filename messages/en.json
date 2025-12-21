@@ -223,5 +223,11 @@
   "completed": "Completed",
   "withdraw_requests": "Withdraw Requests",
   "available_balance": "Available Balance",
-  "request_withdraw": "Request Withdraw"
+  "request_withdraw": "Request Withdraw",
+  "project": "Project",
+  "cost": "Cost",
+  "start_time": "Start Time",
+  "project_status": "Project Status",
+  "service_requester": "Service Requester",
+  "project_number": "#"
 }

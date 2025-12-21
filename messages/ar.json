@@ -223,5 +223,11 @@
   "completed": "مكتمل",
   "withdraw_requests": "طلبات السحب",
   "available_balance": "الرصيد المتاح للسحب",
-  "request_withdraw": "طلب سحب"
+  "request_withdraw": "طلب سحب",
+  "project": "Project",
+  "cost": "Cost",
+  "start_time": "Start Time",
+  "project_status": "Project Status",
+  "service_requester": "Service Requester",
+  "project_number": "#"
 }
