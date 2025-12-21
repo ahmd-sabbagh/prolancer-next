@@ -9,8 +9,10 @@ import ChatHeader from "./_components/ChatHeader";
 import ChatInput from "./_components/ChatInput";
 import Messages from "./_components/Messages";
 import Title from "@/components/title/Title";
+import { useTranslations } from "next-intl";
 
 export default function Page() {
+  const t = useTranslations()
   const chats: Chat[] = useMemo(() => mockChats, []);
 
   const [activeChatId, setActiveChatId] = useState<number>(chats[0]?.id ?? 1);
@@ -28,7 +30,8 @@ export default function Page() {
   return (
     <section className="bg-[#F8FAFF] pt-10 md:pt-16 pb-[100px]">
       <div className="container">
-        <Title title={"الرسائل"} />
+        <Title title={t("messages")}
+        />
 
         <div className="bg-white rounded-xl border border-[#ECECEC] overflow-hidden mt-8">
           <div className="flex md:h-[650px]">

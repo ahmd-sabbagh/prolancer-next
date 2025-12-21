@@ -3,6 +3,7 @@
 import React from "react";
 import { IoSend } from "react-icons/io5";
 import { FiPaperclip } from "react-icons/fi";
+import { useTranslations } from "next-intl";
 
 type Props = {
     value: string;
@@ -11,6 +12,8 @@ type Props = {
 };
 
 export default function ChatInput({ value, onChange, onSend }: Props) {
+    const t = useTranslations()
+
     return (
         <div className="px-3 md:px-6 py-3 border-t border-[#F0F0F0] bg-white">
             <div className="flex items-center gap-3">
@@ -18,7 +21,8 @@ export default function ChatInput({ value, onChange, onSend }: Props) {
                     <input
                         value={value}
                         onChange={(e) => onChange(e.target.value)}
-                        placeholder="اكتب رسالتك هنا"
+                        placeholder={t("Write Your Message Here")}
+
                         className="w-full h-12 ps-4 pe-12 rounded-lg bg-[#F8F9FA] border border-[#EDEDED] outline-none"
                     />
 

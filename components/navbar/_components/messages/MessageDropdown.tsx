@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import MessageItem from "./MessageItem";
 import type { MsgPreview } from "./messages.types";
 
@@ -12,6 +13,8 @@ type Props = {
 };
 
 export default function MessageDropdown({ open, items, onClose }: Props) {
+  const t = useTranslations()
+
   if (!open) return null;
 
   return (
@@ -21,7 +24,9 @@ export default function MessageDropdown({ open, items, onClose }: Props) {
     >
       {/* Header */}
       <div className="pt-4">
-        <h6 className="text-sm text-[#6C757D] px-5">الرسائل</h6>
+        <h6 className="text-sm text-[#6C757D] px-5">
+          {t("messages")}
+        </h6>
         <div className="mt-3 h-px bg-[#F2F2F2]" />
       </div>
 
@@ -44,7 +49,7 @@ export default function MessageDropdown({ open, items, onClose }: Props) {
           className="block text-center py-3 text-sm text-[#00D388]"
           onClick={onClose}
         >
-          عرض الكل
+          {t("viewAll")}
         </Link>
       </div>
     </div>

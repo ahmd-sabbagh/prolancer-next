@@ -4,6 +4,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { LuSearch } from "react-icons/lu";
 import type { Chat } from "./types";
+import { useTranslations } from "next-intl";
 
 type Props = {
     chats: Chat[];
@@ -20,6 +21,8 @@ export default function ChatsSidebar({
     search,
     onSearchChange,
 }: Props) {
+    const t = useTranslations()
+
     return (
         <aside className="w-full md:w-[320px] lg:w-[360px] xl:w-[400px] flex flex-col border-e border-[#F0F0F0] h-full">
 
@@ -29,7 +32,8 @@ export default function ChatsSidebar({
                     <input
                         value={search}
                         onChange={(e) => onSearchChange(e.target.value)}
-                        placeholder="بحث"
+                        placeholder={t("Search")}
+
                         className="w-full h-11 ps-3 pe-10 rounded-md !border !border-[#EDEDED] outline-none"
                     />
                     <span className="absolute end-3 top-1/2 -translate-y-1/2 text-[#6C757D]">

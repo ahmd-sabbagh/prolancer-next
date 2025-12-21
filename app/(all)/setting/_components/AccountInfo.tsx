@@ -31,54 +31,22 @@ const AccountInfo = () => {
   ];
 
   const service_requester = [
-    {
-      link: "/projects",
-      name: t("projects"),
-    },
-    {
-      link: "/disputes",
-      name: "النزاعات",
-    },
-    {
-      link: "/favorite",
-      name: t("likly_services"),
-    },
-    {
-      link: "/walet",
-      name: t("walet"),
-    },
+    { link: "/projects", name: t("projects") },
+    { link: "/disputes", name: t("disputes") },
+    { link: "/favorite", name: t("likly_services") },
+    { link: "/walet", name: t("walet") },
   ];
 
   const service_provider_links = [
-    {
-      link: "/my-services",
-      name: t("myServices"),
-    },
-    {
-      link: "orders",
-      name: t("orders"),
-    },
-    {
-      link: "portfolio",
-      name: t("portfolio"),
-    },
-    {
-      link: "/projects",
-      name: t("projects"),
-    },
-    {
-      link: "/favorite",
-      name: t("likedWorks"),
-    },
-    {
-      link: "/walet",
-      name: t("walet"),
-    },
+    { link: "/my-services", name: t("myServices") },
+    { link: "orders", name: t("orders") },
+    { link: "portfolio", name: t("portfolio") },
+    { link: "/projects", name: t("projects") },
+    { link: "/favorite", name: t("likedWorks") },
+    { link: "/walet", name: t("walet") },
   ];
 
-  const data = isServiceProvider
-    ? service_provider_links
-    : service_requester;
+  const data = isServiceProvider ? service_provider_links : service_requester;
 
   return (
     <div>
@@ -87,24 +55,19 @@ const AccountInfo = () => {
         <h4 className="text-xl dark-color">{t("account information")}</h4>
 
         <div className="mt-3 flex flex-col gap-3">
-          <ItemLink
-            link="/setting/account-setting"
-            name={t("account setting")}
-          />
+          <ItemLink link="/setting/account-setting" name={t("account setting")} />
           <ItemLink
             link="/setting/privacy-and-security"
-            name={"الأمان والخصوصية"}
+            name={t("privacy_and_security")}
           />
           <ItemLink
             link="/setting/professional-settings"
-            name={"الإعدادات المهنية"}
+            name={t("professional_settings")}
           />
-          <ItemLink link="/setting/financial" name={"المالية"} />
+          <ItemLink link="/setting/financial" name={t("financial")} />
         </div>
 
-        <span className="mt-3 dark-color text-sm block">
-          {t("share account")}
-        </span>
+        <span className="mt-3 dark-color text-sm block">{t("share account")}</span>
 
         <div className="mt-5 flex items-center gap-3.5 flex-wrap">
           {social_links.map((icon, idx) => (
@@ -112,7 +75,7 @@ const AccountInfo = () => {
               <div className="h-9 w-9 relative">
                 <Image
                   src={icon.icon}
-                  alt="social icon"
+                  alt={t("social_icon")}
                   fill
                   loading="lazy"
                   sizes="36px"
