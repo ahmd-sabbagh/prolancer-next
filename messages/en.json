@@ -213,5 +213,15 @@
   "from": "From",
   "to": "To",
   "add_new": "Add New",
-  "save_working_hours": "Save Working Hours"
+  "save_working_hours": "Save Working Hours",
+  "finance": "Finance",
+  "transaction_history": "Transaction History",
+  "amount": "Amount",
+  "date": "Date",
+  "description": "Description",
+  "status": "Status",
+  "completed": "Completed",
+  "withdraw_requests": "Withdraw Requests",
+  "available_balance": "Available Balance",
+  "request_withdraw": "Request Withdraw"
 }

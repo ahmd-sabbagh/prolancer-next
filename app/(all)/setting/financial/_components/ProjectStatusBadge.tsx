@@ -1,5 +1,6 @@
 import React from "react";
 import { ProjectStatus } from "./projects-data";
+import { useTranslations } from "next-intl";
 
 interface ProjectStatusBadgeProps {
   status: ProjectStatus;
@@ -19,15 +20,10 @@ function getStatusClasses(status: ProjectStatus, variant: "chip" | "pill") {
   return `${base} bg-[#FFEED6] text-[#F59E0B]`;
 }
 
-function getStatusLabel(status: ProjectStatus) {
-  return status === "done" ? "مكتمل" : "جاري العمل";
-}
-
-const ProjectStatusBadge: React.FC<ProjectStatusBadgeProps> = ({
-  status,
-  variant = "pill",
-}) => {
-  return <span className={getStatusClasses(status, variant)}>{getStatusLabel(status)}</span>;
+const ProjectStatusBadge: React.FC<ProjectStatusBadgeProps> = ({ status, variant = "pill" }) => {
+  const t = useTranslations();
+  const label = status === "done" ? t("completed") : t("in_progress");
+  return <span className={getStatusClasses(status, variant)}>{label}</span>;
 };
 
 export default ProjectStatusBadge;

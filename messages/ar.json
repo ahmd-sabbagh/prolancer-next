@@ -213,5 +213,15 @@
   "from": "من",
   "to": "الى",
   "add_new": "أضف جديد",
-  "save_working_hours": "حفظ ساعات العمل"
+  "save_working_hours": "حفظ ساعات العمل",
+  "finance": "المالية",
+  "transaction_history": "سجل المعاملات",
+  "amount": "المبلغ",
+  "date": "التاريخ",
+  "description": "الوصف",
+  "status": "الحالة",
+  "completed": "مكتمل",
+  "withdraw_requests": "طلبات السحب",
+  "available_balance": "الرصيد المتاح للسحب",
+  "request_withdraw": "طلب سحب"
 }

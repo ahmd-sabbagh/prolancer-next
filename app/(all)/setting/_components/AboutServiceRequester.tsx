@@ -1,159 +1,100 @@
 "use client";
 
 import React from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function AboutServiceRequester() {
-    const t = useTranslations()
+    const t = useTranslations();
+    const locale = useLocale();
+    const isRTL = locale === "ar";
+
+    // Helper للـ responsive text alignment
+    const textAlignClass = `text-center md:text-${isRTL ? "right" : "left"}`;
 
     return (
-        <div dir="rtl" className="w-full min-h-screen bg-[#F8FAFC]">
+        <div dir={isRTL ? "rtl" : "ltr"} className="w-full min-h-screen bg-[#F8FAFC]">
             <div className="max-w-7xl mx-auto px-6 py-8">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-xl font-semibold text-slate-900">
-                        {t("overview")}
-                    </h2>
-                    <span className="bg-emerald-50 text-emerald-600 text-sm px-4 py-1.5 rounded-full font-medium">
+                <div className={`flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 ${textAlignClass}`}>
+                    <h2 className="text-xl font-semibold text-slate-900">{t("overview")}</h2>
+                    <span className="bg-emerald-50 text-emerald-600 text-sm px-4 py-1.5 rounded-full font-medium mt-2 sm:mt-0">
                         {t("freelancer_kpis")}
                     </span>
                 </div>
 
                 {/* Top Row */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-5 text-center lg:text-right">
-                    {/* إجمالي الأرباح */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <p className="text-slate-500 text-sm mb-2">{t("total_earnings")}</p>
-                        <p className="text-2xl font-semibold text-emerald-600">$8,420</p>
-                        <p className="text-xs text-emerald-600 mt-1">{t("this_month_up")}</p>
-                    </div>
-
-                    {/* ساعات العمل */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <p className="text-slate-500 text-sm mb-2">
-                            {t("completed_work_hours")}
-                        </p>
-                        <p className="text-2xl font-semibold text-slate-900">
-                            {t("hour")}
-                        </p>
-                        <p className="text-xs text-slate-400 mt-1">
-                            {t("added_to_professional_record")}
-                        </p>
-                    </div>
-
-                    {/* المشاريع المكتملة */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <p className="text-slate-500 text-sm mb-2">{t("completed_projects")}</p>
-                        <p className="text-2xl font-semibold text-slate-900">27</p>
-                        <p className="text-xs text-slate-400 mt-1">{t("projects_in_progress")}</p>
-                    </div>
-
-                    {/* التقييم العام */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <p className="text-slate-500 text-sm mb-2">{t("overall_rating")}</p>
-
-                        <div className="flex items-center justify-center lg:justify-start gap-2">
-                            <span className="text-2xl font-semibold text-yellow-500">4.8</span>
-                            <span className="text-yellow-400 text-lg">★</span>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-5">
+                    {[
+                        { title: "total_earnings", value: "$8,420", sub: "this_month_up", color: "text-emerald-600" },
+                        { title: "completed_work_hours", value: t("hour"), sub: "added_to_professional_record", color: "text-slate-900" },
+                        { title: "completed_projects", value: "27", sub: "projects_in_progress", color: "text-slate-900" },
+                        { title: "overall_rating", value: "4.8 ★", sub: "rating", color: "text-yellow-500" },
+                    ].map((item, idx) => (
+                        <div key={idx} className={`bg-white rounded-xl border border-slate-100 p-5 shadow-sm ${textAlignClass}`}>
+                            <p className="text-slate-500 text-sm mb-2">{t(item.title)}</p>
+                            <p className={`text-2xl font-semibold ${item.color}`}>{item.value}</p>
+                            <p className="text-xs text-slate-400 mt-1">{t(item.sub)}</p>
                         </div>
-
-                        <p className="text-xs text-slate-400 mt-1">{t("rating")}</p>
-                    </div>
+                    ))}
                 </div>
 
                 {/* Middle Row */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-                    {/* نسبة إنجاز الطلبات */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <div className="flex justify-between items-center mb-2">
-                            <p className="text-slate-500 text-sm">{t("order_completion_rate")}</p>
-                            <span className="text-xs font-medium text-emerald-600">5%</span>
+                    {[
+                        { title: "order_completion_rate", value: "96%", sub: "days", badge: "5%", badgeColor: "text-emerald-600" },
+                        { title: "on_time_delivery", value: "94%", sub: "day", badge: t("excellent"), badgeColor: "text-emerald-600" },
+                        { title: "avg_response_time", value: t("hour"), sub: t("hour"), badge: t("needs_improvement"), badgeColor: "text-yellow-500" },
+                    ].map((item, idx) => (
+                        <div key={idx} className={`bg-white rounded-xl border border-slate-100 p-5 shadow-sm ${textAlignClass}`}>
+                            <div className="flex justify-between items-center mb-2">
+                                <p className="text-slate-500 text-sm">{t(item.title)}</p>
+                                <span className={`text-xs font-medium ${item.badgeColor}`}>{item.badge}</span>
+                            </div>
+                            <p className="text-2xl font-semibold text-slate-900">{item.value}</p>
+                            <p className="text-xs text-slate-400 mt-1">{item.sub}</p>
                         </div>
-
-                        <p className="text-2xl font-semibold text-slate-900">96%</p>
-                        <p className="text-xs text-slate-400 mt-1">{t("days")}</p>
-                    </div>
-
-                    {/* التسليم في الوقت */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <div className="flex justify-between items-center mb-2">
-                            <p className="text-slate-500 text-sm">{t("on_time_delivery")}</p>
-                            <span className="text-xs font-medium text-emerald-600">
-                                {t("excellent")}
-                            </span>
-                        </div>
-
-                        <p className="text-2xl font-semibold text-slate-900">94%</p>
-                        <p className="text-xs text-slate-400 mt-1">{t("day")}</p>
-                    </div>
-
-                    {/* متوسط زمن الاستجابة */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <div className="flex justify-between items-center mb-2">
-                            <p className="text-slate-500 text-sm">{t("avg_response_time")}</p>
-                            <span className="text-xs font-medium text-yellow-500">
-                                {t("needs_improvement")}
-                            </span>
-                        </div>
-                        <p className="text-2xl font-semibold text-slate-900">{t("hour")}</p>
-                        <p className="text-xs text-slate-400 mt-1">{t("hour")}</p>
-                    </div>
+                    ))}
                 </div>
 
                 {/* Bottom Row */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    {/* رضا العملاء */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <div className="flex justify-between items-center mb-2">
-                            <p className="text-slate-500 text-sm">{t("customer_satisfaction")}</p>
-                            <span className="text-xs font-medium text-emerald-600">3%</span>
+                    {[
+                        { title: "customer_satisfaction", value: "5", sub: "ratings", badge: "3%", badgeColor: "text-emerald-600" },
+                        { title: "offer_acceptance_rate", value: "72%", sub: "offers_accepted_this_month", badge: t("contracts"), badgeColor: "text-emerald-600" },
+                        { title: "monthly_goals", content: (
+                            <div className="space-y-2 text-sm leading-6">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-slate-600">{t("monthly_goals")}</span>
+                                    <span className="text-sm font-medium text-emerald-600">{t("in_progress")}</span>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <span className="text-slate-500">{t("completed_projects")}</span>
+                                    <span className="font-semibold text-slate-800">3/5</span>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <span className="text-slate-500">{t("paid_work_hours")}</span>
+                                    <span className="font-semibold text-slate-800">{t("hour")}</span>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <span className="text-slate-500">{t("improve_reply")}</span>
+                                    <span className="font-semibold text-slate-800">{t("hour")}</span>
+                                </div>
+                            </div>
+                        )},
+                    ].map((item, idx) => (
+                        <div key={idx} className={`bg-white rounded-xl border border-slate-100 p-5 shadow-sm ${textAlignClass}`}>
+                            {item.content ? item.content : (
+                                <>
+                                    <div className="flex justify-between items-center mb-2">
+                                        <p className="text-slate-500 text-sm">{t(item.title)}</p>
+                                        <span className={`text-xs font-medium ${item.badgeColor}`}>{item.badge}</span>
+                                    </div>
+                                    <p className="text-2xl font-semibold text-slate-900">{item.value}</p>
+                                    <p className="text-xs text-slate-400 mt-1">{item.sub}</p>
+                                </>
+                            )}
                         </div>
-
-                        <p className="text-2xl font-semibold text-slate-900">5</p>
-                        <p className="text-xs text-slate-400 mt-1">{t("ratings")}</p>
-                    </div>
-
-                    {/* نسبة قبول العروض */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <div className="flex justify-between items-center mb-2">
-                            <p className="text-slate-500 text-sm">{t("offer_acceptance_rate")}</p>
-                            <span className="text-xs font-medium text-emerald-600">
-                                {t("contracts")}
-                            </span>
-                        </div>
-
-                        <p className="text-2xl font-semibold text-slate-900">72%</p>
-                        <p className="text-xs text-slate-400 mt-1">
-                            {t("offers_accepted_this_month")}
-                        </p>
-                    </div>
-
-                    {/* أهداف شهرية */}
-                    <div className="bg-white rounded-xl border border-slate-100 p-5 shadow-sm">
-                        <div className="space-y-2 text-sm leading-6">
-                            <div className="flex items-center justify-between">
-                                <span className="text-slate-600">{t("monthly_goals")}</span>
-                                <span className="text-sm font-medium text-emerald-600">
-                                    {t("in_progress")}
-                                </span>
-                            </div>
-
-                            <div className="flex items-center justify-between">
-                                <span className="text-slate-500">{t("completed_projects")}</span>
-                                <span className="font-semibold text-slate-800">3/5</span>
-                            </div>
-
-                            <div className="flex items-center justify-between">
-                                <span className="text-slate-500">{t("paid_work_hours")}</span>
-                                <span className="font-semibold text-slate-800">{t("hour")}</span>
-                            </div>
-
-                            <div className="flex items-center justify-between">
-                                <span className="text-slate-500">{t("improve_reply")}</span>
-                                <span className="font-semibold text-slate-800">{t("hour")}</span>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
