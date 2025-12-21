@@ -1,13 +1,10 @@
 "use client";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 const Header = () => {
-
-  return (
-    <h2 className="text-2xl md:text-3xl dark-color">
-      النزاعات
-    </h2>
-  );
+  const t = useTranslations();
+  return <h2 className="text-2xl md:text-3xl dark-color">{t("disputes")}</h2>;
 };
 
 export default Header;

@@ -229,5 +229,19 @@
   "start_time": "Start Time",
   "project_status": "Project Status",
   "service_requester": "Service Requester",
-  "project_number": "#"
+  "project_number": "#",
+  "dir": "ltr",
+  "upload_dispute": "Upload Dispute",
+  "raise_dispute": "Raise a Dispute",
+  "dispute_type": "Dispute Type",
+  "select_dispute_type": "Select Dispute Type",
+  "financial_dispute": "Financial Dispute",
+  "delivery_dispute": "Delivery Dispute",
+  "quality_dispute": "Quality Dispute",
+  "related_contract": "Related Contract",
+  "select_contract": "Select Contract",
+  "dispute_details": "Dispute Details",
+  "write_dispute_details": "Write dispute details here...",
+  "attached_contract_optional": "Attached contract, if any",
+  "preview": "Preview"
 }

@@ -1,16 +1,15 @@
 "use client";
-
 import Image from "next/image";
 import React, { useRef, useState, useEffect } from "react";
 import { FiImage } from "react-icons/fi";
+import { useTranslations } from "next-intl";
 
 const ImageUploadBox: React.FC = () => {
+  const t = useTranslations();
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
-  const handleClick = () => {
-    inputRef.current?.click();
-  };
+  const handleClick = () => inputRef.current?.click();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -23,9 +22,7 @@ const ImageUploadBox: React.FC = () => {
   };
 
   useEffect(() => {
-    return () => {
-      if (preview) URL.revokeObjectURL(preview);
-    };
+    return () => { if (preview) URL.revokeObjectURL(preview); };
   }, [preview]);
 
   return (
@@ -53,7 +50,7 @@ const ImageUploadBox: React.FC = () => {
         {preview && (
           <Image
             src={preview}
-            alt="Preview"
+            alt={t("preview")}
             width={80}
             height={90}
             className="
@@ -75,8 +72,8 @@ const ImageUploadBox: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-1 text-xs sm:text-sm">
-        <span className="text-[#111827] font-medium">ارفع صورة</span>
-        <span className="text-[#9CA3AF]">العقد المرفق، إن وجد</span>
+        <span className="text-[#111827] font-medium">{t("upload_image")}</span>
+        <span className="text-[#9CA3AF]">{t("attached_contract_optional")}</span>
       </div>
     </div>
   );
