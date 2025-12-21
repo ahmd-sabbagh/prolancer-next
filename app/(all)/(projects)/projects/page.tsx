@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
-import { useTranslations } from "next-intl";
 import { projects } from "../_components/projects-data";
 import ProjectsMobileList from "../_components/ProjectsMobileList";
 import ProjectsTable from "../_components/ProjectsTable";
 import Header from "../_components/Header";
 
 const ProjectsPage: React.FC = () => {
-  const t = useTranslations();
 
   return (
     <section className="min-h-screen bg-[#F6F8FB] pb-10">

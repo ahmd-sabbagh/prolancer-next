@@ -2,15 +2,15 @@ import React from "react";
 import Link from "next/link";
 import WorkCard from "../_components/WorkCard";
 import { works } from "../_components/portfolio-data";
+import Header from "../_components/Header";
 
 const PortfolioPage: React.FC = () => {
     return (
-        <section className="min-h-screen bg-[#F8FAFF] py-10 md:py-16">
-            <div className="mx-auto max-w-[1511px] px-4 md:px-6 space-y-8">
-                <div className="flex items-center justify-between">
-                    <h1 className="text-xl md:text-2xl font-semibold text-[#111827]">
-                        معرض الاعمال
-                    </h1>
+        <section className="min-h-screen bg-[#F6F8FB] pb-10">
+            <div className="container pt-8">
+                {/* Page Title */}
+                <div className="mb-9 mt-7 flex justify-between">
+                    <Header />
                     <Link
                         href="/portfolio/addNewProject"
                         className="

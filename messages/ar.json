@@ -243,5 +243,9 @@
   "dispute_details": "تفاصيل النزاع",
   "write_dispute_details": "اكتب تفاصيل النزاع هنا...",
   "attached_contract_optional": "العقد المرفق، إن وجد",
-  "preview": "معاينة"
+  "preview": "معاينة",
+  "requests_page_title": "طلبات للعمل عليها",
+  "accepted": "قبول",
+  "rejected": "رفض",
+  "canceled": "ملغي"
 }

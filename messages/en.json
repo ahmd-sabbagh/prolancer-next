@@ -243,5 +243,9 @@
   "dispute_details": "Dispute Details",
   "write_dispute_details": "Write dispute details here...",
   "attached_contract_optional": "Attached contract, if any",
-  "preview": "Preview"
+  "preview": "Preview",
+  "requests_page_title": "Work Requests",
+  "accepted": "Accepted",
+  "rejected": "Rejected",
+  "canceled": "Canceled"
 }
