@@ -39,7 +39,7 @@ const TransferProvider = () => {
       <button
         type="button"
         onClick={() => dispatch(toggleRole())}
-        className="lg:hidden relative w-6 h-6 flex-center text-white rounded-full transition-colors"
+        className="lg:hidden relative w-6 h-6 flex items-center justify-center text-white rounded-full transition-colors"
         aria-label="Transfer Role"
       >
         <MdSwapHoriz className="w-full h-full" />
