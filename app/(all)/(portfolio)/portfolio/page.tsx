@@ -3,12 +3,14 @@ import Link from "next/link";
 import WorkCard from "../_components/WorkCard";
 import { works } from "../_components/portfolio-data";
 import Header from "../_components/Header";
+import { useTranslations } from "next-intl";
 
 const PortfolioPage: React.FC = () => {
+    const t = useTranslations();
+
     return (
         <section className="min-h-screen bg-[#F6F8FB] pb-10">
             <div className="container pt-8">
-                {/* Page Title */}
                 <div className="mb-9 mt-7 flex justify-between">
                     <Header />
                     <Link
@@ -23,7 +25,7 @@ const PortfolioPage: React.FC = () => {
                             flex items-center justify-center
                         "
                     >
-                        إضافة عمل
+                        {t("add_work")}
                     </Link>
                 </div>
                 <div className="space-y-6">

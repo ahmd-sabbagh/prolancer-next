@@ -247,5 +247,14 @@
   "requests_page_title": "Work Requests",
   "accepted": "Accepted",
   "rejected": "Rejected",
-  "canceled": "Canceled"
+  "canceled": "Canceled",
+  "add_work": "Add Work",
+  "add_new_project": "Add New Project",
+  "save_and_add": "Save & Add",
+  "basic_info": "Basic Information",
+  "project_title": "Project Title",
+  "skills_tools": "Skills & Tools",
+  "image_size": "JPG 80×90px",
+  "project_title_default": "Mobile App Design",
+  "project_description_default": "Are you a UX designer with a proven track record of delivering impactful digital experiences? Are you a strategic storyteller and systems thinker capable of crafting smart, high-level campaigns across various media?"
 }

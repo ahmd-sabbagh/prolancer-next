@@ -3,12 +3,15 @@ import { FiLayers, FiShare2 } from "react-icons/fi";
 import { AiFillStar } from "react-icons/ai";
 import { LuWallet } from "react-icons/lu";
 import { WorkItem } from "./portfolio-data";
+import { useTranslations } from "next-intl";
 
 interface WorkCardProps {
   work: WorkItem;
 }
 
 const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
+  const t = useTranslations();
+
   return (
     <article
       className="
@@ -17,7 +20,6 @@ const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
         px-6 py-6 md:px-10 md:py-7
         shadow-[0_22px_60px_rgba(15,23,42,0.06)]
       "
-      dir="rtl"
     >
       <div className="flex flex-col gap-6 w-full">
 
@@ -40,7 +42,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
           "
         >
 
-          <div className="flex-1 flex flex-col text-right gap-2">
+          <div className="flex-1 flex flex-col gap-2">
 
             <div className="flex items-center gap-2 h-[24px]">
               <FiLayers className="text-[#00B274] w-5 h-5" />
@@ -61,8 +63,9 @@ const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
                 {work.rate.toFixed(1)}
               </span>
               <span className="text-[#8A8A8A]">
-                ({work.reviewsCount.toLocaleString("en-US")} تقييم)
+                ({work.reviewsCount.toLocaleString("en-US")} {t("ratings")})
               </span>
+
             </div>
           </div>
 

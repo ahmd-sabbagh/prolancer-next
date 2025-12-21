@@ -1,10 +1,15 @@
+"use client";
+
 import React, { FC } from "react";
+import { useTranslations } from "next-intl";
 import ImageUploadBox from "./_components/ImageUploadBox";
 import SkillsTagsBar from "./_components/SkillsTagsBar";
 
 const tags: string[] = ["UX/UI DESIGNER", "WEB DESIGN", "APP"];
 
 const AddNewProjectPage: FC = () => {
+  const t = useTranslations();
+
   return (
     <section className="min-h-screen bg-[#F8FAFF] py-8 md:py-16">
       <div className="mx-auto max-w-[1240px] px-4 md:px-6 space-y-8 md:space-y-10">
@@ -16,8 +21,8 @@ const AddNewProjectPage: FC = () => {
             sm:flex-row sm:items-center sm:justify-between
           "
         >
-          <h1 className="text-xl sm:text-2xl md:text-3xl text-[#111827] text-right">
-            اضافة عمل جديد
+          <h1 className="text-xl sm:text-2xl md:text-3xl text-[#111827] ">
+            {t("add_new_project")}
           </h1>
 
           <button
@@ -33,7 +38,7 @@ const AddNewProjectPage: FC = () => {
               hover:translate-y-0.5 hover:shadow-[0_14px_30px_rgba(16,185,129,0.45)]
             "
           >
-            حفظ و اضافة
+            {t("save_and_add")}
           </button>
         </div>
 
@@ -49,20 +54,20 @@ const AddNewProjectPage: FC = () => {
         >
           {/* Basic info + upload */}
           <div className="flex flex-col gap-5 md:gap-8">
-            <h2 className="text-lg md:text-xl text-[#111827] text-right">
-              المعلومات الاساسية
+            <h2 className="text-lg md:text-xl text-[#111827] ">
+              {t("basic_info")}
             </h2>
             <ImageUploadBox />
           </div>
 
           {/* Title */}
           <div className="space-y-2">
-            <label className="block text-sm text-[#111827] text-right">
-              عنوان العمل
+            <label className="block text-sm text-[#111827] ">
+              {t("project_title")}
             </label>
             <input
               type="text"
-              defaultValue="تصميم تطبيق موبايل"
+              defaultValue={t("project_title_default")}
               className="
                 w-full h-[50px]
                 rounded-[10px]
@@ -78,16 +83,16 @@ const AddNewProjectPage: FC = () => {
 
           {/* Skills */}
           <div className="space-y-2">
-            <label className="block text-sm text-[#111827] text-right">
-              المهارات و الادوات
+            <label className="block text-sm text-[#111827] ">
+              {t("skills_tools")}
             </label>
             <SkillsTagsBar tags={tags} />
           </div>
 
           {/* Description */}
           <div className="space-y-2">
-            <label className="block text-sm text-[#111827] text-right">
-              الوصف
+            <label className="block text-sm text-[#111827] ">
+              {t("description")}
             </label>
 
             <textarea
@@ -100,13 +105,10 @@ const AddNewProjectPage: FC = () => {
                 text-sm text-[#111827]
                 outline-none
                 leading-relaxed
-                text-right
                 focus:border-[#00B274]
                 focus:ring-2 focus:ring-[#00B27433]
               "
-              defaultValue={
-                "هل أنت مصمم تجربة مستخدم، ولديك سجل حافل في تقديم تجارب رقمية تفاعلية تحقق نتائج ملموسة؟ هل أنت راوي قصص استراتيجي ومفكر أنظمة قادر على ابتكار وتصميم حملات ذكية وعالية المستوى عبر مجموعة متنوعة من الوسائط؟"
-              }
+              defaultValue={t("project_description_default")}
             />
           </div>
         </div>

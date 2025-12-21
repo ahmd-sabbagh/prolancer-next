@@ -1,55 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import React, { useRef, useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { FiImage } from "react-icons/fi";
+import Image from "next/image";
 
 const ImageUploadBox: React.FC = () => {
+  const t = useTranslations();
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
-  const handleClick = () => {
-    inputRef.current?.click();
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) {
-      setPreview(null);
-      return;
-    }
-
-    const url = URL.createObjectURL(file);
-    setPreview(url);
-  };
-
-  useEffect(() => {
-    return () => {
-      if (preview) URL.revokeObjectURL(preview);
-    };
-  }, [preview]);
-
   return (
-    <div
-      className="
-        flex sm:flex-row
-        items-center
-        gap-4 sm:gap-5
-      "
-    >
+    <div className="flex items-center gap-4 sm:gap-5">
       <div
-        onClick={handleClick}
-        className="
-          w-[140px] h-[140px]
-          md:w-[170px] md:h-[170px]
-          rounded-[18px]
-          bg-[#E3F9ED]
-          flex flex-col items-center justify-center
-          gap-3 text-center
-          cursor-pointer
-          hover:bg-[#d8f4e4]
-          transition
-        "
+        onClick={() => inputRef.current?.click()}
+        className="w-[140px] h-[140px] rounded-[18px] bg-[#E3F9ED] flex flex-col items-center justify-center gap-3 cursor-pointer"
       >
         {!preview && (
           <div className="w-[48px] h-[48px] rounded-xl bg-[#00D084]/10 flex items-center justify-center text-[#00B274]">
@@ -61,27 +26,25 @@ const ImageUploadBox: React.FC = () => {
           <Image
             src={preview}
             alt="Preview"
-            className="
-              w-[80px] h-[90px]
-              object-cover
-              rounded-lg
-              border border-[#00B27433]
-            "
+            width={80}
+            height={90}
+            className="rounded-lg object-cover"
           />
         )}
 
         <input
           ref={inputRef}
           type="file"
-          accept="image/*"
           className="hidden"
-          onChange={handleFileChange}
+          onChange={(e) =>
+            e.target.files && setPreview(URL.createObjectURL(e.target.files[0]))
+          }
         />
       </div>
 
       <div className="flex flex-col gap-1 text-xs sm:text-sm">
-        <span className="text-[#111827] font-medium">ارفع صورة</span>
-        <span className="text-[#9CA3AF]">JPG 80×90px</span>
+        <span className="text-[#111827] font-medium">{t("upload_image")}</span>
+        <span className="text-[#9CA3AF]">{t("image_size")}</span>
       </div>
     </div>
   );

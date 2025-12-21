@@ -9,7 +9,7 @@ const Rating = () => {
   const ratio = ["60%", "20%", "7%", "10%", "3%"];
   return (
     <div className="mt-5 md:mt-8">
-      <h4 className="text-xl md:text-3xl dark-color">{t("rating")}</h4>
+      <h4 className="text-xl md:text-3xl dark-color">{t("ratings")}</h4>
       <div className="mt-5.5 flex items-center gap-5 md:gap-10 justify-between">
         {/* rate num */}
         <div className="">
