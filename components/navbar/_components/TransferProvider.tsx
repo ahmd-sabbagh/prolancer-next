@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "@/lib/store/store";
-import { toggleRole } from "@/lib/store/slices/roleSlice";
+import { toggleRole } from "@/lib/store/ui/roleSlice";
 import { MdSwapHoriz } from "react-icons/md";
 
 const TransferProvider = () => {

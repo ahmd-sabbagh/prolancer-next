@@ -3,6 +3,5 @@ import NavbarClone from "./NavbarClone";
 
 export const Navbar = async () => {
   const lang = await getLocale();
-
-  return <NavbarClone lang={lang} />;
+  return <NavbarClone lang={lang}  />;
 };

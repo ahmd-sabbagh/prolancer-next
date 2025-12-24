@@ -1,29 +1,27 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
-import React, { useState } from "react";
 import BtnSubmit from "../_components/BtnSubmit";
-import { useRouter } from "next/navigation";
+import { useUserTypeForm } from "@/hooks/feature/auth/useUserTypeForm";
 
 const Form = () => {
-  const t = useTranslations();
-  const router = useRouter();
-  const onSubmit = (e: React.FormEvent) => {
+  const { userType, selectUserType, onSubmit, loading, t } = useUserTypeForm();
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.replace("/interests");
+    onSubmit();
   };
-  const [state, setState] = useState("");
+
   return (
-    <form onSubmit={onSubmit} className="mt-10 flex flex-col gap-4">
+    <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-4">
       <button
         type="button"
         className={cn(
           "rounded-xl py-5 px-6 border text-start",
-          state === "provider"
+          userType === "client"
             ? "border-[#1DBF73] green-color bg-[#1DBF731A]"
             : "border-[#DDDFDF]"
         )}
-        onClick={() => setState("provider")}
+        onClick={() => selectUserType("client")}
       >
         {t("Service provider")}
       </button>
@@ -31,11 +29,11 @@ const Form = () => {
         type="button"
         className={cn(
           "rounded-xl py-5 px-6 border text-start",
-          state === "postulant"
+          userType === "freelancer"
             ? "border-[#1DBF73] green-color bg-[#1DBF731A]"
             : "border-[#DDDFDF]"
         )}
-        onClick={() => setState("postulant")}
+        onClick={() => selectUserType("freelancer")}
       >
         {t("postulant")}
       </button>
@@ -44,7 +42,7 @@ const Form = () => {
           "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص."
         }
       </p>
-      <BtnSubmit text={t("next")} className="mt-3.5" />
+      <BtnSubmit text={t("next")} className="mt-3.5" loading={loading} />
     </form>
   );
 };

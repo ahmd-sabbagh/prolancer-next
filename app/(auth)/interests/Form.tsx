@@ -7,7 +7,7 @@ import { LuSearch } from "react-icons/lu";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/lib/store/hooks";
-import { login } from "@/lib/store/slices/authSlice";
+import { login } from "@/lib/store/ui/authSlice";
 
 const Form = () => {
   const t = useTranslations();

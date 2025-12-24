@@ -256,5 +256,11 @@
   "skills_tools": "Skills & Tools",
   "image_size": "JPG 80×90px",
   "project_title_default": "Mobile App Design",
-  "project_description_default": "Are you a UX designer with a proven track record of delivering impactful digital experiences? Are you a strategic storyteller and systems thinker capable of crafting smart, high-level campaigns across various media?"
+  "project_description_default": "Are you a UX designer with a proven track record of delivering impactful digital experiences? Are you a strategic storyteller and systems thinker capable of crafting smart, high-level campaigns across various media?",
+
+    "full_name_v": "Full name must be at least 5 characters",
+  "email_v": "Invalid email address",
+  "phone_v": "Invalid phone number",
+  "password_v": "Password must be at least 8 characters",
+  "please_select_user_type": "Please select a user type"
 }

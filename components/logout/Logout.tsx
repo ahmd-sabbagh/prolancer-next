@@ -1,19 +1,20 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import React from "react";
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "@/lib/store/hooks";
-import { logout } from "@/lib/store/slices/authSlice";
+import { deleteCookie } from "cookies-next";
+import { useAuth } from "@/app/context/AuthContext";
 
 const Logout = () => {
   const t = useTranslations();
-  const dispatch = useAppDispatch();
   const router = useRouter();
+  const {setToken} = useAuth()
 
   const handleLogout = () => {
-    dispatch(logout());
+    deleteCookie("token");
+    deleteCookie("user");
     router.replace("/");
+    setToken(null);
   };
 
   return (

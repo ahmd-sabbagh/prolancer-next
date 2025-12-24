@@ -5,17 +5,22 @@ import { getLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import localFont from "next/font/local";
 import ReduxProvider from "@/lib/store/ReduxProvider";
+import { Toaster } from "sonner";
+import { AuthProvider } from "./context/AuthContext";
+import { cookies } from "next/headers";
 
 const madani = localFont({
   src: [
     { path: "../fonts/alfont_com_Madani-Arabic-Bold-2.ttf", weight: "700" },
-    { path: "../fonts/alfont_com_Madani-Arabic-Semi-Bold-1.woff", weight: "600" },
+    {
+      path: "../fonts/alfont_com_Madani-Arabic-Semi-Bold-1.woff",
+      weight: "600",
+    },
     { path: "../fonts/alfont_com_Madani-Arabic-Medium-1.woff", weight: "500" },
     { path: "../fonts/alfont_com_Madani-Arabic-Regular.woff", weight: "400" },
     { path: "../fonts/alfont_com_Madani-Arabic-Light.woff", weight: "300" },
   ],
 });
-
 
 export const metadata: Metadata = {
   title: "Prolancer",
@@ -29,13 +34,15 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const token =  (await cookies()).get("token")?.value || null;
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className={`${madani.className} antialiased`}>
+        <Toaster position="bottom-right" />
         <NextIntlClientProvider messages={messages}>
-          <ReduxProvider>
-            {children}
-          </ReduxProvider>
+          <AuthProvider initialToken={token}>
+            <ReduxProvider>{children}</ReduxProvider>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>
