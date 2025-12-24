@@ -3,7 +3,7 @@ import { getCookie } from "cookies-next";
 import { toast } from "sonner";
 
 const instance = axios.create({
-  baseURL: `https://prolancer-rhvxpp4u.on-forge.com/api/`,
+  baseURL: `${process.env.NEXT_PUBLIC_API_URL}/api/`,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
